@@ -763,16 +763,18 @@ ul.custom-bullets li::before {
     line-height: 22px;
 }
 .behindoffice-header {
-    border: 2px solid #2EA7E0;
+    /* border: 2px solid #2EA7E0; */
     background-color: #fff;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index:50;
-    height: 64px; /* Set a fixed height for the header */
+    z-index: 50;
+    height: 64px;
     display: flex;
     align-items: stretch;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* nhẹ nhàng hơn viền */
 }
+
 
 .behindoffice-header-container {
     flex: 1;

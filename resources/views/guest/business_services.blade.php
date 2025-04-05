@@ -62,6 +62,46 @@
         object-position: center;
     }
     
+    .about-bg-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        overflow: hidden;
+    }
+    
+    .about-bg-container::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        z-index: 1;
+    }
+    
+    .about-bg-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: relative;
+        z-index: 0;
+    }
+    
+    .about-us {
+        position: relative;
+        background-color: transparent;
+    }
+    
+    .about-content {
+        position: relative;
+        z-index: 2;
+    }
+    
     .our-services {
         position: relative;
         background-color: transparent;
@@ -98,36 +138,39 @@
         object-position: center;
     }
     
-    .why-choose-us-image-container::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 45, 86, 0.85);
-        z-index: 1;
-    }
-    
-    .why-choose-us {
+    .why-choose-section {
         position: relative;
         background-color: transparent;
     }
     
-    .why-choose-us__title, 
-    .why-choose-us__subtitle, 
-    .feature-card__title, 
-    .feature-card__description,
-    .feature-card {
+    .why-choose-section .container {
         position: relative;
         z-index: 2;
     }
     
-    .why-choose-us::before {
-        display: none;
+    .why-choose-section .section-title h2 {
+        color: white;
     }
     
+    .testimonial-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+}
+
     @media (max-width: 768px) {
+        .testimonials .grid {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        gap: 0.5rem !important;
+    }
+
+    .testimonial-card:not(:last-child) {
+        margin-bottom: 1.5rem !important;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem;
+    }
         .services-image-container {
             display: none;
         }
@@ -140,8 +183,8 @@
             display: none;
         }
         
-        .why-choose-us {
-            background-color: #002d56;
+        .why-choose-section {
+            background-color: rgba(0, 45, 86, 0.85);
         }
         
         .business-service-hero .container {
@@ -304,10 +347,6 @@
             align-items: center !important;
         }
         
-        .grid.grid-cols-1.md\:grid-cols-3.gap-8 {
-            gap: 0 !important;
-        }
-        
         /* Why Choose Us section centering */
         .why-choose-us__title, .why-choose-us__subtitle {
             text-align: center !important;
@@ -328,6 +367,14 @@
         .about-image {
             position: relative !important;
             padding-bottom: 40px !important;
+        }
+        
+        .about-bg-container {
+            display: none;
+        }
+        
+        .about-us {
+            background-color: #f8f9fa;
         }
     }
     
@@ -438,9 +485,6 @@
 
 <!-- Our Services Section -->
 <section class="our-services py-16">
-    <div class="services-image-container">
-        <img src="{{ asset('assets/home/Group1000001755.png') }}" alt="Services Background">
-    </div>
     <div class="container mx-auto px-4">
         <div class="services-header flex justify-between items-center mb-8">
             <h2 class="section-title text-2xl md:text-3xl font-bold text-[#1C1F35]">Dịch vụ của chúng tôi</h2>
@@ -552,6 +596,9 @@
 
 <!-- About Us Section -->
 <section class="about-us py-16 bg-[#f8f9fa]">
+    <div class="about-bg-container">
+        <img src="{{ asset('assets/home/Group1000001755.png') }}" alt="About Us Background" class="w-full h-full object-cover">
+    </div>
     <div class="container-fluid px-0">
         <div class="about-content flex flex-col md:flex-row items-center">
             <div class="about-image w-full md:w-2/5 mb-8 md:mb-0 relative" data-aos="fade-right" data-aos-duration="1000">
