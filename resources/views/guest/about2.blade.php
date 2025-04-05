@@ -27,6 +27,19 @@
     z-index: 1;
 }
 
+/* Custom style to control hex-row-offset margin */
+@media (max-width: 768px) {
+    .hex-row-offset {
+        margin-top: 0 !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .why-choose-section .hex-row-offset {
+        margin-top: -87px !important;
+    }
+}
+
     .consultation-form {
     position: relative;
     overflow: hidden;

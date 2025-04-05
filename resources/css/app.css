@@ -855,7 +855,7 @@ ul.custom-bullets li::before {
 
 /* Main Section */
 .bo-service-detail-wrapper {
-    padding: 60px 20px;
+    padding: 60px 0px;
     background-color: #fff;
 }
 

@@ -1042,14 +1042,14 @@
   .table-row {
     display: table-row;
   }
-  .aspect-\[4\/3\] {
-    aspect-ratio: 4/3;
-  }
   .aspect-\[1920\/1282\] {
     aspect-ratio: 1920/1282;
   }
   .h-1 {
     height: calc(var(--spacing) * 1);
+  }
+  .h-1\/4 {
+    height: calc(1/4 * 100%);
   }
   .h-2 {
     height: calc(var(--spacing) * 2);
@@ -1149,6 +1149,9 @@
   }
   .w-1 {
     width: calc(var(--spacing) * 1);
+  }
+  .w-1\/4 {
+    width: calc(1/4 * 100%);
   }
   .w-2 {
     width: calc(var(--spacing) * 2);
@@ -1651,9 +1654,6 @@
   }
   .bg-\[\#C1262E\] {
     background-color: #C1262E;
-  }
-  .bg-\[\#f8f9fa\] {
-    background-color: #f8f9fa;
   }
   .bg-black {
     background-color: var(--color-black);
@@ -2320,9 +2320,6 @@
   }
   .text-\[\#002D56\] {
     color: #002D56;
-  }
-  .text-\[\#7ec9ff\] {
-    color: #7ec9ff;
   }
   .text-\[\#121416\] {
     color: #121416;
@@ -5982,6 +5979,7 @@ ul.custom-bullets li::before {
   font-weight: 400;
   white-space: nowrap;
   margin-right: -2px;
+  min-width: 240px;
 }
 .behindoffice-call-box strong {
   font-weight: 700;
@@ -6014,7 +6012,7 @@ ul.custom-bullets li::before {
   z-index: 2;
 }
 .bo-service-detail-wrapper {
-  padding: 60px 20px;
+  padding: 60px 0px;
   background-color: #fff;
 }
 .bo-service-detail-content {

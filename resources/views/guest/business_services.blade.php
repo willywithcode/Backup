@@ -29,6 +29,19 @@
   z-index: 0 !important;
 }
 
+/* Custom style to remove margin-top on hex-row-offset only in mobile view */
+@media (max-width: 768px) {
+    .hex-row-offset {
+        margin-top: 0 !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .why-choose-section .hex-row-offset {
+        margin-top: -87px !important;
+    }
+}
+
     .consultation-form {
     position: relative;
     overflow: hidden;
@@ -776,7 +789,7 @@
             </div>
 
             <!-- Bottom Row - Offset -->
-            <div class="hex-row hex-row-offset" style="margin-top: -87px">
+            <div class="hex-row hex-row-offset" style="margin-top: -87px; @media (max-width: 768px) { margin-top: 0 !important; }">
                 <!-- Tiện lợi -->
                 <div class="hex-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                     <div class="hex-content">
@@ -988,15 +1001,32 @@
 document.addEventListener("DOMContentLoaded", function () {
     const popup = document.getElementById("behindoffice-popup");
     const closeBtn = document.getElementById("behindoffice-popup-close");
+    const quoteBtn = document.querySelector('.quote-btn');
+    const submitBtn = document.querySelector('.behindoffice-popup__submit');
 
-    // Show popup once
-    if (!sessionStorage.getItem("popupShown")) {
+    // Show popup when "Nhận báo giá" button is clicked
+    quoteBtn.addEventListener("click", function(e) {
+        e.preventDefault();
         popup.classList.remove("hidden");
-        sessionStorage.setItem("popupShown", "true");
-    }
+    });
 
+    // Hide popup when close button is clicked
     closeBtn.addEventListener("click", () => {
         popup.classList.add("hidden");
+    });
+
+    // Hide popup when form is submitted
+    submitBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        popup.classList.add("hidden");
+        // Form submission logic can be added here
+    });
+
+    // Hide popup when clicking outside the modal
+    popup.addEventListener("click", (e) => {
+        if (e.target === popup) {
+            popup.classList.add("hidden");
+        }
     });
 });
 </script>

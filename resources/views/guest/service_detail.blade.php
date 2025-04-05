@@ -18,6 +18,19 @@
     z-index: 10;
 }
 
+/* Custom style to control hex-row-offset margin */
+@media (max-width: 768px) {
+    .hex-row-offset {
+        margin-top: 0 !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .why-choose-section .hex-row-offset {
+        margin-top: -87px !important;
+    }
+}
+
 .bo-service-detail-button:hover {
     transform: translateY(-60%) translateX(10%);
     background-color: #1565c0;
