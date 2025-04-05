@@ -5946,6 +5946,7 @@ ul.custom-bullets li::before {
   height: 64px;
   display: flex;
   align-items: stretch;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 .behindoffice-header-container {
   flex: 1;
