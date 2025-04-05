@@ -3,12 +3,37 @@
 @section('styles')
 <link href="{{ asset('resources/css/business-services.css') }}" rel="stylesheet">
 <style>
+.logo-background {
+  position: absolute;
+  top: 400px;
+  right: -100px;
+  width: 800px;
+  height: auto;
+  opacity: 1;
+  z-index: -1; 
+  pointer-events: none;
+}
+
+.logo-background img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.about-us {
+  position: relative;
+  overflow: visible;
+}
+.our-services {
+  position: relative;
+  z-index: 0 !important;
+}
+
     .consultation-form {
     position: relative;
     overflow: hidden;
 }
 
-    /* Form styling for all devices */
     .form-control {
         width: 100%;
         padding: 12px;
@@ -515,6 +540,7 @@
 
 <!-- Our Services Section -->
 <section class="our-services py-16">
+  <div class ="our-services py-16">
     <div class="container mx-auto px-4">
         <div class="services-header flex justify-between items-center mb-8">
             <h2 class="section-title text-2xl md:text-3xl font-bold text-[#1C1F35]">Dịch vụ của chúng tôi</h2>
@@ -622,15 +648,15 @@
             <span class="dot" data-index="2"></span>
         </div>
     </div>
-</section>
-
-<!-- About Us Section -->
-<section class="about-us py-16 bg-[#f8f9fa]">
-    <div class="about-bg-container">
-        <img src="{{ asset('assets/home/Group1000001755.png') }}" alt="About Us Background" class="w-full h-full object-cover">
+<div>
+<div class="logo-background absolute bottom-0 right-0 z-0 pointer-events-none opacity-10">
+            <img src="{{ asset('assets/logo-logo1.png') }}" alt="Logo Background" class="w-full h-full object-contain">
     </div>
+    <div lass="about-us py-16 bg-[#f8f9fa] relative overflow-hidden">
+
     <div class="container-fluid px-0">
         <div class="about-content flex flex-col md:flex-row items-center">
+            
             <div class="about-image w-full md:w-2/5 mb-8 md:mb-0 relative" data-aos="fade-right" data-aos-duration="1000">
                 <img src="{{ asset('assets/home/woman-with-headset-having-video-call-laptop 1.png') }}" alt="Behind Office Team" class="w-full h-auto">
                 <!-- Project count box positioned below the image and extending beyond right edge -->
@@ -655,6 +681,7 @@
                     STORY
                 </div>
                 <h2 class="text-3xl font-bold text-[#1C1F35] mb-6">Chúng tôi là ai?</h2>
+   
                 <div class="text-gray-700 space-y-4">
                     <p>Behind Office là đơn vị chuyên cung cấp dịch vụ trợ lý chuyên nghiệp, hỗ trợ doanh nghiệp và cá nhân trong việc quản lý công việc, tối ưu hóa quy trình văn hành và nâng cao hiệu suất làm việc. Với sự mềm giúp khách hàng giảm tải áp lực hành chính, chúng tôi mang đến đội ngũ trợ lý giàu kinh nghiệm, linh hoạt và tận tâm, sẵn sàng đồng hành trong mọi khía cạnh của công việc.</p>
                     <p>Với quy trình làm việc chuyên nghiệp, bảo mật thông tin tuyệt đối và giải pháp linh hoạt theo từng nhu cầu, Behind Office cam kết giúp khách hàng tiết kiệm thời gian, tập trung vào các mục tiêu quan trọng và phát triển kinh doanh bền vững.</p>
@@ -738,6 +765,7 @@
             </div>
         </div>
     </div>
+    <div>
 </section>
 
 <!-- Consultation Form Section -->

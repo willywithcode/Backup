@@ -233,6 +233,9 @@
   }
 }
 @layer utilities {
+  .pointer-events-none {
+    pointer-events: none;
+  }
   .\!visible {
     visibility: visible !important;
   }
@@ -1723,6 +1726,10 @@
   }
   .bg-no-repeat {
     background-repeat: no-repeat;
+  }
+  .object-contain {
+    -o-object-fit: contain;
+       object-fit: contain;
   }
   .object-cover {
     -o-object-fit: cover;
@@ -5938,7 +5945,6 @@ ul.custom-bullets li::before {
   line-height: 22px;
 }
 .behindoffice-header {
-  border: 2px solid #2EA7E0;
   background-color: #fff;
   position: fixed;
   top: 0;
@@ -5947,6 +5953,7 @@ ul.custom-bullets li::before {
   height: 64px;
   display: flex;
   align-items: stretch;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 .behindoffice-header-container {
   flex: 1;
