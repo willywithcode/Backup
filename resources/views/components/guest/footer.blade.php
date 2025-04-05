@@ -1,4 +1,4 @@
-<footer class="behindoffice-footer bg-gradient-to-r from-[#2EA7E0] to-[#1A4DB7] text-white py-10 text-sm">
+<footer class="behindoffice-footer bg-gradient-to-r from-[#2EA7E0] to-[#1A4DB7] text-white py-10 text-sm" style = "position: relative; z-index: 10">
     <div class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         <div class="behindoffice-footer-logo space-y-4">
             <div class="flex items-center space-x-3">
