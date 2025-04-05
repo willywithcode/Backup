@@ -1183,9 +1183,6 @@
   .w-50 {
     width: calc(var(--spacing) * 50);
   }
-  .w-64 {
-    width: calc(var(--spacing) * 64);
-  }
   .w-70 {
     width: calc(var(--spacing) * 70);
   }
@@ -2303,9 +2300,6 @@
   }
   .whitespace-pre-line {
     white-space: pre-line;
-  }
-  .text-\[\#\#2EA7E0\] {
-    color: ##2EA7E0;
   }
   .text-\[\#1C1F35\] {
     color: #1C1F35;
@@ -5294,6 +5288,10 @@ textarea.form-control {
 html {
   font-family: 'Inter', sans-serif;
   scroll-behavior: smooth;
+}
+.container {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 [x-cloak] {
   display: none !important;
