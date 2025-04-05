@@ -1,0 +1,272 @@
+/* Service Detail Page Styles */
+.service-detail-page {
+    position: relative;
+    overflow: hidden;
+}
+
+.bo-service-detail-wrapper {
+    position: relative;
+}
+
+.bo-service-detail-content {
+    position: relative;
+    z-index: 1;
+}
+
+.bo-service-detail-image {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.bo-service-detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bo-service-detail-text {
+    padding: 20px;
+}
+
+.bo-service-detail-button {
+    display: inline-block;
+    background-color: #1e88e5;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.bo-service-detail-button:hover {
+    background-color: #1565c0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+}
+
+.bo-service-detail-other {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
+.bo-other-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.bo-other-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.bo-other-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.bo-other-card-content {
+    padding: 20px;
+}
+
+/* Why Choose Behind Office Section */
+.why-choose-section {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #1e88e5 0%, #1565c0 100%);
+    color: white;
+    padding: 4rem 0;
+}
+
+.why-choose-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.why-choose-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.why-choose-section .section-title {
+    margin-bottom: 3rem;
+}
+
+.why-choose-section .section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.hexagon-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hex-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.hex-row-offset {
+    margin-top: -60px;
+}
+
+.hex-item {
+    position: relative;
+    width: 280px;
+    height: 300px;
+    margin: 0 15px;
+    z-index: 1;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: all 0.3s ease;
+}
+
+.hex-item:hover {
+    transform: scale(1.05);
+}
+
+.hex-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hex-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+
+.hex-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.hex-item:hover .hex-overlay {
+    opacity: 1;
+}
+
+.hex-overlay h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.hex-overlay p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive styles */
+@media (max-width: 1100px) {
+    .hex-item {
+        width: 240px;
+        height: 260px;
+    }
+    
+    .hex-overlay {
+        padding: 15px;
+    }
+    
+    .hex-overlay h3 {
+        font-size: 1.3rem;
+    }
+    
+    .hex-overlay p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .hex-item {
+        width: 220px;
+        height: 240px;
+    }
+    
+    .hex-overlay h3 {
+        font-size: 1.2rem;
+    }
+    
+    .hex-overlay p {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hex-row {
+        flex-wrap: wrap;
+    }
+    
+    .hex-row-offset {
+        margin-top: 0;
+    }
+    
+    .hex-item {
+        width: 200px;
+        height: 220px;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 580px) {
+    .hexagon-grid {
+        flex-direction: column;
+    }
+    
+    .hex-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hex-item {
+        width: 220px;
+        height: 240px;
+        margin: 10px 0;
+    }
+    
+    .hex-overlay h3 {
+        font-size: 1.1rem;
+    }
+    
+    .hex-overlay p {
+        font-size: 0.7rem;
+    }
+} 
