@@ -31,10 +31,97 @@
             z-index: 5 !important;
         }
 
+        /* Hexagon styles */
+        .hexagon-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hex-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hex-item {
+            position: relative;
+            width: 280px;
+            height: 320px;
+            margin: 15px;
+            text-align: center;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .hex-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .hex-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .hex-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        .hex-overlay h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hex-overlay p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
         /* Custom style to remove margin-top on hex-row-offset only in mobile view */
         @media (max-width: 768px) {
             .hex-row-offset {
                 margin-top: 0 !important;
+            }
+
+            .hex-item {
+                width: 240px;
+                height: 280px;
+                margin: 10px auto;
+            }
+
+            .hex-overlay {
+                padding: 20px;
+            }
+
+            .hex-overlay h3 {
+                font-size: 1.25rem;
+                margin-bottom: 8px;
+            }
+
+            .hex-overlay p {
+                font-size: 0.85rem;
+                line-height: 1.3;
             }
         }
 
@@ -876,6 +963,33 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white shadow-md rounded-lg p-8 border border-gray-100" data-aos="fade-up"
+                data-aos-delay="100" data-aos-duration="1000">
+                <div class="testimonial-content mb-6">
+                    <p class="text-gray-700 italic">
+                        "Behind Office mang đến dịch vụ chuyên nghiệp, giúp công việc hậu cần văn phòng của chúng tôi
+                        vận hành suôn sẻ hơn. Nhờ họ, tôi có thể tập trung vào chiến lược kinh doanh mà không lo gián
+                        đoạn."
+                    </p>
+                </div>
+                <div class="testimonial-author flex flex-col items-center">
+                    <div class="author-avatar mb-3">
+                        <img src="{{ asset('assets/home/avatar1.png') }}" alt="Anna Lee"
+                            class="w-16 h-16 rounded-full">
+                    </div>
+                    <div class="author-info text-center">
+                        <h4 class="author-name font-bold text-[#1C1F35] uppercase">ANNA LEE</h4>
+                        <p class="author-position text-sm text-gray-500 uppercase">FAIRY CAKE</p>
+                        <div class="rating flex justify-center mt-2">
+                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
                 <!-- Testimonial 1 -->
                 <div class="testimonial-card bg-white shadow-md rounded-lg p-8 border border-gray-100" data-aos="fade-up"
                     data-aos-delay="100" data-aos-duration="1000">

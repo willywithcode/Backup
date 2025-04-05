@@ -150,6 +150,7 @@
     display: flex;
     justify-content: center;
     gap: 0.5rem;
+    padding: 5px;
 }
 
 .dot {
