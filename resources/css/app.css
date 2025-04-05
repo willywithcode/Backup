@@ -10,6 +10,15 @@ html {
     scroll-behavior: smooth;
 }
 
+.container {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
 .header-menu-item {
     color: #1C1F35;
     font-size: 16px;
@@ -1226,11 +1235,11 @@ ul.custom-bullets li::before {
         height: 190px;
         margin: 15px 0;
     }
-    
+
     .hex-overlay h3 {
         font-size: 1.25rem;
     }
-    
+
     .hex-overlay p {
         font-size: 0.85rem;
     }

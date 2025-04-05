@@ -32,7 +32,9 @@ Route::get('ping', function () {
 });
 
 Route::middleware('localization')->group(function () {
+
     Route::get('/home', [HomeController::class, 'homePage'])->name('home');
+
     Route::get('/about_old', [HomeController::class, 'about'])->name('about_old');
     Route::get('/services_old', [HomeController::class, 'services'])->name('services_old');
     Route::get('/contact_old', [HomeController::class, 'contact'])->name('contact_old');

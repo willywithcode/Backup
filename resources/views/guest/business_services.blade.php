@@ -10,7 +10,7 @@
   width: 700px;
   height: auto;
   opacity: 1;
-  z-index: -1; 
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -99,7 +99,7 @@
         object-fit: cover;
         object-position: center;
     }
-    
+
     .about-bg-container {
         position: absolute;
         width: 100%;
@@ -109,7 +109,7 @@
         z-index: -1;
         overflow: hidden;
     }
-    
+
     .about-bg-container::after {
         content: '';
         position: absolute;
@@ -120,7 +120,7 @@
         background-color: rgba(255, 255, 255, 0.8);
         z-index: 1;
     }
-    
+
     .about-bg-container img {
         width: 100%;
         height: 100%;
@@ -129,17 +129,17 @@
         position: relative;
         z-index: 0;
     }
-    
+
     .about-us {
         position: relative;
         background-color: transparent;
     }
-    
+
     .about-content {
         position: relative;
         z-index: 2;
     }
-    
+
     .our-services {
         position: relative;
         background-color: transparent;
@@ -175,21 +175,21 @@
         object-fit: cover;
         object-position: center;
     }
-    
+
     .why-choose-section {
         position: relative;
         background-color: transparent;
     }
-    
+
     .why-choose-section .container {
         position: relative;
         z-index: 2;
     }
-    
+
     .why-choose-section .section-title h2 {
         color: white;
     }
-    
+
     .testimonial-card {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     border-radius: 12px;
@@ -249,7 +249,7 @@
         .why-choose-us-image-container {
             display: none;
         }
-        
+
         .why-choose-section {
             background-color: rgba(0, 45, 86, 0.85);
 
@@ -316,17 +316,17 @@
         .about-content {
             padding: 0 15px;
         }
-        
+
         .about-image {
             width: 100% !important;
         }
-        
+
         .about-text {
             width: 100% !important;
             padding: 15px !important;
             margin-top: 50px;
         }
-        
+
         .project-count {
             position: relative !important;
             width: 90% !important;
@@ -343,7 +343,7 @@
             text-align: center !important;
             width: 100% !important;
         }
-        
+
         .hex-item {
             margin: 10px auto !important;
         }
@@ -439,11 +439,11 @@
             position: relative !important;
             padding-bottom: 40px !important;
         }
-        
+
         .about-bg-container {
             display: none;
         }
-        
+
         .about-us {
             background-color: #ffffff;
         }
@@ -593,7 +593,7 @@
 </div>
 
 <!-- Our Services Section -->
-<section class="our-services py-16 ">
+<section class="our-services py-16" style="max-width: 100%;overflow-x: hidden;">
   <div class ="our-services py-16">
     <div class="container mx-auto px-4">
         <div class="services-header flex justify-between items-center mb-8">
@@ -672,9 +672,9 @@
 <img src="{{ asset('assets/logo-logo1.png') }}" alt="Logo Background" style="width: 30%; position: fixed; right: 0; bottom: 0; z-index: 1;">
     <div class="about-us py-16 bg-white relative overflow-hidden" >
 
+
     <div class="container-fluid px-0">
         <div class="about-content flex flex-col md:flex-row items-center">
-            
             <div class="about-image w-full md:w-2/5 mb-8 md:mb-0 relative" data-aos="fade-right" data-aos-duration="1000">
                 <img src="{{ asset('assets/home/woman-with-headset-having-video-call-laptop 1.png') }}" alt="Behind Office Team" class="w-full h-auto">
                 <!-- Project count box positioned below the image and extending beyond right edge -->
@@ -692,12 +692,11 @@
                 </div>
             </div>
             <div class="about-image w-full md:w-1/10 mb-8 md:mb-0 relative" data-aos="fade-right" data-aos-duration="1000">
-
             </div>
             <div class="about-text w-full md:w-1/2 md:pr-40" data-aos="fade-left" data-aos-duration="1000">
-                
+
                 <h2 class="text-3xl font-bold text-[#1C1F35] mb-6">Chúng tôi là ai?</h2>
-   
+
                 <div class="text-gray-700 space-y-4">
                     <p>Behind Office là đơn vị chuyên cung cấp dịch vụ trợ lý chuyên nghiệp, hỗ trợ doanh nghiệp và cá nhân trong việc quản lý công việc, tối ưu hóa quy trình văn hành và nâng cao hiệu suất làm việc. Với sự mềm giúp khách hàng giảm tải áp lực hành chính, chúng tôi mang đến đội ngũ trợ lý giàu kinh nghiệm, linh hoạt và tận tâm, sẵn sàng đồng hành trong mọi khía cạnh của công việc.</p>
                     <p>Với quy trình làm việc chuyên nghiệp, bảo mật thông tin tuyệt đối và giải pháp linh hoạt theo từng nhu cầu, Behind Office cam kết giúp khách hàng tiết kiệm thời gian, tập trung vào các mục tiêu quan trọng và phát triển kinh doanh bền vững.</p>
@@ -939,7 +938,7 @@
 
     <div class="behindoffice-popup__modal relative bg-white rounded-xl shadow-2xl p-8 w-full max-w-md z-10 text-center" style="background: linear-gradient(135deg, #e8f3ff, #ffffff);">
         <button id="behindoffice-popup-close" class="absolute top-3 right-3 text-gray-500 hover:text-black text-2xl">&times;</button>
-        
+
         <div class="flex justify-center">
             <div class="relative mb-5 mt-2 inline-block">
                 <div style="width: 30%; height: 3px; background-color: #2990D0; position: absolute; top: -10px; left: 0; border-radius: 2px;"></div>
@@ -947,7 +946,7 @@
                 <div style="width: 20%; height: 3px; background-color: #2990D0; position: absolute; bottom: -10px; right: 0; border-radius: 2px;"></div>
             </div>
         </div>
-        
+
         <p class="text-gray-600 text-sm mb-6">Vui lòng điền thông tin chi tiết chúng tôi sẽ liên hệ tư vấn!</p>
 
         <form>
