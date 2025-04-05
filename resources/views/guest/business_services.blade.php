@@ -18,17 +18,17 @@
         font-size: 16px;
         transition: all 0.3s ease;
     }
-    
+
     .form-control:focus {
         outline: none;
         border-color: #3498db;
         box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.25);
     }
-    
+
     .form-control::placeholder {
         color: #6c757d;
     }
-    
+
     .submit-btn {
         background-color: #3498db;
         color: white;
@@ -40,11 +40,11 @@
         cursor: pointer;
         transition: all 0.3s ease;
     }
-    
+
     .submit-btn:hover {
         background-color: #2980b9;
     }
-    
+
     .services-image-container {
         position: absolute;
         width: 100%;
@@ -54,32 +54,32 @@
         z-index: -1;
         overflow: hidden;
     }
-    
+
     .services-image-container img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
     }
-    
+
     .our-services {
         position: relative;
         background-color: transparent;
     }
-    
+
     .section-title, .service-title {
         color: #1C1F35;
         position: relative;
         z-index: 2;
     }
-    
+
     .service-card {
         background-color: rgba(255, 255, 255, 0.8);
         position: relative;
         z-index: 2;
         backdrop-filter: blur(5px);
     }
-    
+
     /* Why Choose Us image container */
     .why-choose-us-image-container {
         position: absolute;
@@ -90,14 +90,14 @@
         z-index: 0;
         overflow: hidden;
     }
-    
+
     .why-choose-us-image-container img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
     }
-    
+
     .why-choose-us-image-container::after {
         content: '';
         position: absolute;
@@ -108,48 +108,48 @@
         background-color: rgba(0, 45, 86, 0.85);
         z-index: 1;
     }
-    
+
     .why-choose-us {
         position: relative;
         background-color: transparent;
     }
-    
-    .why-choose-us__title, 
-    .why-choose-us__subtitle, 
-    .feature-card__title, 
+
+    .why-choose-us__title,
+    .why-choose-us__subtitle,
+    .feature-card__title,
     .feature-card__description,
     .feature-card {
         position: relative;
         z-index: 2;
     }
-    
+
     .why-choose-us::before {
         display: none;
     }
-    
+
     @media (max-width: 768px) {
         .services-image-container {
             display: none;
         }
-        
+
         .our-services {
             background-color: #fff;
         }
-        
+
         .why-choose-us-image-container {
             display: none;
         }
-        
+
         .why-choose-us {
             background-color: #002d56;
         }
-        
+
         .business-service-hero .container {
             padding-left: 20px !important;
             padding-right: 20px !important;
             text-align: center !important;
         }
-        
+
         .hero-content {
             margin: 0 auto !important;
             display: flex !important;
@@ -157,70 +157,70 @@
             align-items: center !important;
             justify-content: center !important;
         }
-        
+
         .welcome-text, .hero-title, .hero-description {
             text-align: center !important;
             margin-left: auto !important;
             margin-right: auto !important;
         }
-        
+
         .hero-buttons {
             justify-content: center !important;
             align-items: center !important;
             margin: 0 auto !important;
         }
-        
+
         .service-card {
             width: 300px !important;
             margin-bottom: 40px !important;
             margin-left: auto !important;
             margin-right: auto !important;
         }
-        
+
         .services-track {
             gap: 30px !important;
             justify-content: center !important;
         }
-        
+
         .service-image-wrapper {
             height: 380px !important;
         }
-        
+
         .services-header {
             flex-direction: column;
             gap: 15px;
             margin-bottom: 20px !important;
             text-align: center !important;
         }
-        
+
         .section-title {
             text-align: center;
             width: 100%;
         }
-        
+
         .quote-btn {
             margin: 0 auto;
         }
-        
+
         .about-content {
             padding: 0 20px;
             text-align: center !important;
         }
-        
+
         .about-text {
             padding-right: 20px !important;
             text-align: center !important;
         }
-        
+
         .about-text div, .about-text p, .about-text h2 {
             text-align: center !important;
         }
-        
+
         .story-tag {
             margin: 0 auto !important;
             display: inline-block !important;
         }
-        
+
         .project-count {
             position: absolute !important;
             bottom: -30px !important;
@@ -233,14 +233,14 @@
             text-align: center !important;
             z-index: 5 !important;
         }
-        
+
         .about-action {
             text-align: center;
             width: 100% !important;
             display: flex !important;
             justify-content: center !important;
         }
-        
+
         /* Improved form styles for mobile */
         .consultation-content {
             padding-left: 15px !important;
@@ -252,160 +252,160 @@
             width: 100% !important;
             margin-bottom: 20px !important;
         }
-        
+
         .consultation-form-container {
             padding: 0 15px !important;
             width: 100% !important;
         }
-        
+
         .form-row.grid {
             display: flex !important;
             flex-direction: column !important;
             grid-template-columns: unset !important;
         }
-        
+
         .form-row {
             text-align: center !important;
             margin-bottom: 15px !important;
         }
-        
+
         .form-group {
             width: 100% !important;
             margin-bottom: 15px !important;
         }
-        
+
         .form-control {
             width: 100% !important;
         }
-        
+
         textarea.form-control {
             width: 100% !important;
             min-height: 120px !important;
         }
-        
+
         .submit-btn {
             width: 100% !important;
             margin: 0 auto !important;
             padding: 15px !important;
         }
-        
+
         .behindoffice-popup__modal {
             width: 90% !important;
             max-width: 400px !important;
         }
-        
+
         /* Testimonials spacing and centering in mobile */
         .testimonial-card {
             margin-bottom: 40px !important;
             text-align: center !important;
         }
-        
+
         .testimonial-author {
             align-items: center !important;
         }
-        
+
         .grid.grid-cols-1.md\:grid-cols-3.gap-8 {
             gap: 0 !important;
         }
-        
+
         /* Why Choose Us section centering */
         .why-choose-us__title, .why-choose-us__subtitle {
             text-align: center !important;
         }
-        
+
         .feature-card {
             text-align: center !important;
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
         }
-        
+
         .feature-card__content {
             text-align: center !important;
         }
-        
+
         /* Adjust about-image to make room for project-count */
         .about-image {
             position: relative !important;
             padding-bottom: 40px !important;
         }
     }
-    
+
     @media (max-width: 480px) {
         .business-service-hero {
             height: auto !important;
             min-height: 500px !important;
         }
-        
+
         .welcome-text {
             font-size: 1rem !important;
         }
-        
+
         .hero-title {
             font-size: 1.6rem !important;
             margin-bottom: 1rem !important;
         }
-        
+
         .hero-description {
             font-size: 0.9rem !important;
         }
-        
+
         .hero-buttons {
             flex-direction: column;
             gap: 10px;
         }
-        
+
         .service-card {
             width: 260px !important;
             margin-bottom: 50px !important;
         }
-        
+
         .services-track {
             gap: 40px !important;
         }
-        
+
         .service-image-wrapper {
             height: 320px !important;
         }
-        
+
         .service-title {
             font-size: 0.9rem !important;
         }
-        
+
         .project-count {
             width: 90% !important;
             max-width: 240px !important;
             right: 0 !important;
             bottom: -25px !important;
         }
-        
+
         .why-choose-us__title {
             font-size: 1.5rem !important;
         }
-        
+
         .why-choose-us__subtitle {
             font-size: 0.9rem !important;
             margin-bottom: 30px !important;
         }
-        
+
         .feature-card__title {
             font-size: 1.1rem !important;
         }
-        
+
         .feature-card__description {
             font-size: 0.85rem !important;
         }
-        
+
         .consultation-title {
             font-size: 1.5rem !important;
             text-align: center !important;
         }
-        
+
         .consultation-description {
             font-size: 0.9rem !important;
             text-align: center !important;
         }
-        
+
         .submit-btn {
             width: 100% !important;
             padding: 12px !important;
@@ -571,7 +571,7 @@
                 </div>
             </div>
             <div class="about-image w-full md:w-1/10 mb-8 md:mb-0 relative" data-aos="fade-right" data-aos-duration="1000">
-                
+
             </div>
             <div class="about-text w-full md:w-1/2 md:pr-40" data-aos="fade-left" data-aos-duration="1000">
                 <div class="story-tag bg-black text-white inline-block px-8 py-2 rounded-full mb-4">
@@ -592,15 +592,12 @@
 </section>
 
 <!-- Why Choose Behind Office Section -->
-<section class="why-choose-section py-16 relative">
-    <div class="why-choose-us-image-container">
-        <img src="{{ asset('assets/home/Why choice us.png') }}" alt="Why Choose Us Background" class="w-full h-full object-cover">
-    </div>
+<section class="why-choose-section py-16 relative" style="background-image: url('{{ asset('assets/home/Why choice us.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="container mx-auto px-4">
         <div class="section-title text-center mb-16">
             <h2 class="text-3xl font-bold mx-auto">Tại sao lựa chọn Behind Office</h2>
         </div>
-        
+
         <div class="hexagon-grid">
             <!-- Top Row -->
             <div class="hex-row">
@@ -614,7 +611,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Hiệu quả -->
                 <div class="hex-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                     <div class="hex-content">
@@ -625,7 +622,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Uy tín -->
                 <div class="hex-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                     <div class="hex-content">
@@ -637,9 +634,9 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Bottom Row - Offset -->
-            <div class="hex-row hex-row-offset" style="margin-top: -80px">
+            <div class="hex-row hex-row-offset" style="margin-top: -87px">
                 <!-- Tiện lợi -->
                 <div class="hex-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                     <div class="hex-content">
@@ -650,7 +647,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Tiết kiệm -->
                 <div class="hex-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                     <div class="hex-content">
@@ -684,7 +681,7 @@
                     Lorem ipsum dolor sit amet consectetur. Senectus nulla faucibus feugiat mi et mattis risus tortor. Elementum elementum scelerisque ac ac placerat eget ultrices. Sit ac varius commodo egestas.
                 </p>
             </div>
-            
+
             <!-- Right Form -->
             <div class="consultation-form-container" data-aos="fade-left" data-aos-duration="1000">
                 <form class="consultation-form-fields">
@@ -696,7 +693,7 @@
                             <input type="email" placeholder="Email" class="form-control">
                         </div>
                     </div>
-                    
+
                     <div class="form-row grid grid-cols-2 gap-4 mb-4">
                         <div class="form-group">
                             <input type="tel" placeholder="Số điện thoại" class="form-control">
@@ -705,13 +702,13 @@
                             <input type="text" placeholder="Tỉnh thành" class="form-control">
                         </div>
                     </div>
-                    
+
                     <div class="form-row mb-4">
                         <div class="form-group">
                             <textarea rows="4" placeholder="Lời nhắn..." class="form-control"></textarea>
                         </div>
                     </div>
-                    
+
                     <div class="form-row">
                         <button type="submit" class="submit-btn">GỬI YÊU CẦU</button>
                     </div>
@@ -807,7 +804,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Pagination dots -->
         <div class="pagination-dots flex justify-center mt-10">
             <span class="dot active bg-blue-500"></span>
@@ -865,31 +862,31 @@ document.addEventListener("DOMContentLoaded", function () {
         const sliderContainer = document.querySelector('.services-slider');
         const prevBtn = document.querySelector('.slider-prev');
         const nextBtn = document.querySelector('.slider-next');
-        
+
         let isDragging = false;
         let startPos = 0;
         let currentTranslate = 0;
         let prevTranslate = 0;
         let currentIndex = 0;
         const cardWidth = 280 + 24; // Card width + gap
-        
+
         // Initialize slider position
         function updateSliderPosition() {
             sliderTrack.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
             sliderTrack.style.transition = 'transform 0.3s ease-out';
-            
+
             // Update active dot
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentIndex);
             });
-            
+
             // Show/hide nav buttons based on visibility
             if (prevBtn && nextBtn) {
                 prevBtn.style.display = currentIndex > 0 ? 'flex' : 'none';
                 nextBtn.style.display = currentIndex < cards.length - 1 ? 'flex' : 'none';
             }
         }
-        
+
         // Set up dot navigation
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
@@ -897,7 +894,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 updateSliderPosition();
             });
         });
-        
+
         // Set up arrow navigation
         if (prevBtn) {
             prevBtn.addEventListener('click', () => {
@@ -907,7 +904,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         }
-        
+
         if (nextBtn) {
             nextBtn.addEventListener('click', () => {
                 if (currentIndex < cards.length - 1) {
@@ -916,71 +913,71 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         }
-        
+
         // Touch events
         sliderTrack.addEventListener('touchstart', touchStart);
         sliderTrack.addEventListener('touchmove', touchMove);
         sliderTrack.addEventListener('touchend', touchEnd);
-        
+
         function touchStart(event) {
             startPos = event.touches[0].clientX;
             isDragging = true;
             prevTranslate = currentTranslate;
         }
-        
+
         function touchMove(event) {
             if (!isDragging) return;
             const currentPosition = event.touches[0].clientX;
             currentTranslate = prevTranslate + (currentPosition - startPos);
         }
-        
+
         function touchEnd() {
             isDragging = false;
             const threshold = cardWidth / 4;
             const draggedDistance = currentTranslate - prevTranslate;
-            
+
             if (draggedDistance > threshold && currentIndex > 0) {
                 currentIndex--;
             } else if (draggedDistance < -threshold && currentIndex < cards.length - 1) {
                 currentIndex++;
             }
-            
+
             updateSliderPosition();
         }
-        
+
         // Mouse events (optional for desktop)
         sliderTrack.addEventListener('mousedown', mouseStart);
         sliderTrack.addEventListener('mousemove', mouseMove);
         sliderTrack.addEventListener('mouseup', mouseEnd);
         sliderTrack.addEventListener('mouseleave', mouseEnd);
-        
+
         function mouseStart(event) {
             event.preventDefault();
             startPos = event.clientX;
             isDragging = true;
             prevTranslate = currentTranslate;
         }
-        
+
         function mouseMove(event) {
             if (!isDragging) return;
             const currentPosition = event.clientX;
             currentTranslate = prevTranslate + (currentPosition - startPos);
         }
-        
+
         function mouseEnd() {
             isDragging = false;
             const threshold = cardWidth / 4;
             const draggedDistance = currentTranslate - prevTranslate;
-            
+
             if (draggedDistance > threshold && currentIndex > 0) {
                 currentIndex--;
             } else if (draggedDistance < -threshold && currentIndex < cards.length - 1) {
                 currentIndex++;
             }
-            
+
             updateSliderPosition();
         }
-        
+
         // Initialize
         updateSliderPosition();
     });
