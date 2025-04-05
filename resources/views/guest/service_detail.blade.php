@@ -247,6 +247,105 @@
             font-size: 0.95rem !important;
         }
     }
+        /* Hexagon styles */
+        .hexagon-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hex-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hex-item {
+            position: relative;
+            width: 280px;
+            height: 320px;
+            margin: 15px;
+            text-align: center;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .hex-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .hex-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .hex-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        .hex-overlay h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hex-overlay p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Custom style to remove margin-top on hex-row-offset only in mobile view */
+        @media (max-width: 768px) {
+            .hex-row-offset {
+                margin-top: 0 !important;
+            }
+
+            .hex-item {
+                width: 240px;
+                height: 280px;
+                margin: 10px auto;
+            }
+
+            .hex-overlay {
+                padding: 20px;
+            }
+
+            .hex-overlay h3 {
+                font-size: 1.25rem;
+                margin-bottom: 8px;
+            }
+
+            .hex-overlay p {
+                font-size: 0.85rem;
+                line-height: 1.3;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .why-choose-section .hex-row-offset {
+                margin-top: -87px !important;
+            }
+        }
 </style>
 @endsection
 
@@ -286,7 +385,8 @@
     </div>
 
     <!-- Why Choose Behind Office Section -->
-    <section class="why-choose-section py-16 relative" style="background-image: url('{{ asset('assets/home/Why choice us.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <section class="why-choose-section py-16 relative"
+        style="background-image: url('{{ asset('assets/home/Why choice us.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 10;">
         <div class="container mx-auto px-4">
             <div class="section-title text-center mb-16">
                 <h2 class="text-3xl font-bold mx-auto">Tại sao lựa chọn Behind Office</h2>
@@ -295,43 +395,73 @@
             <div class="hexagon-grid">
                 <!-- Top Row -->
                 <div class="hex-row">
-                    @foreach ([
-                        ['icon' => 'iconHexa1.png', 'title' => 'Nhanh chóng', 'desc' => 'Behind Office xử lý nhanh mọi yêu cầu, không để phát sinh thêm, là giải pháp chuyên nghiệp hỗ trợ 24/7.'],
-                        ['icon' => 'iconHexa2.png', 'title' => 'Hiệu quả', 'desc' => 'Behind Office cam kết kết quả tối ưu, tiến độ công việc nhanh chóng, tăng hiệu quả giảm chi phí.'],
-                        ['icon' => 'iconHexa3.png', 'title' => 'Uy tín', 'desc' => 'Behind Office cam kết bảo mật hàng đầu, với đội ngũ chuyên môn đã làm việc với nhiều đối tác uy tín trong nước.'],
-                    ] as $item)
+                    <!-- Nhanh chóng -->
                     <div class="hex-item" data-aos="fade-up" data-aos-duration="800">
                         <div class="hex-content">
-                            <img src="{{ asset('assets/about/' . $item['icon']) }}" alt="{{ $item['title'] }}" class="hex-bg">
+                            <img src="{{ asset('assets/about/iconHexa1.png') }}" alt="Nhanh chóng" class="hex-bg">
                             <div class="hex-overlay">
-                                <h3>{{ $item['title'] }}</h3>
-                                <p>{{ $item['desc'] }}</p>
+                                <h3>Nhanh chóng</h3>
+                                <p>Behind Office xử lý nhanh mọi yêu cầu, không để phát sinh thêm, là giải pháp chuyên
+                                    nghiệp hỗ trợ 24/7.</p>
                             </div>
                         </div>
                     </div>
-                    @endforeach
+
+                    <!-- Hiệu quả -->
+                    <div class="hex-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                        <div class="hex-content">
+                            <img src="{{ asset('assets/about/iconHexa2.png') }}" alt="Hiệu quả" class="hex-bg">
+                            <div class="hex-overlay">
+                                <h3>Hiệu quả</h3>
+                                <p>Behind Office cam kết kết quả tối ưu, tiến độ công việc nhanh chóng, tăng hiệu quả giảm
+                                    chi phí.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Uy tín -->
+                    <div class="hex-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <div class="hex-content">
+                            <img src="{{ asset('assets/about/iconHexa3.png') }}" alt="Uy tín" class="hex-bg">
+                            <div class="hex-overlay">
+                                <h3>Uy tín</h3>
+                                <p>Behind Office cam kết bảo mật hàng đầu, với đội ngũ chuyên môn đã làm việc với nhiều đối
+                                    tác uy tín trong nước.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Bottom Row - Offset -->
-                <div class="hex-row hex-row-offset">
-                    @foreach ([
-                        ['icon' => 'iconHexa4.png', 'title' => 'Tiện lợi', 'desc' => 'Đối tác chuyên nghiệp, phản hồi nhanh chóng, đem lại trải nghiệm dịch vụ tốt nhất.'],
-                        ['icon' => 'iconHexa5.png', 'title' => 'Tiết kiệm', 'desc' => 'Tùy chỉnh dịch vụ theo nhu cầu, giúp doanh nghiệp và cá nhân tiết kiệm chi phí.'],
-                    ] as $item)
-                    <div class="hex-item" data-aos="fade-up" data-aos-duration="800">
+                <div class="hex-row hex-row-offset"
+                    style="margin-top: -87px; @media (max-width: 768px) { margin-top: 0 !important; }">
+                    <!-- Tiện lợi -->
+                    <div class="hex-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                         <div class="hex-content">
-                            <img src="{{ asset('assets/about/' . $item['icon']) }}" alt="{{ $item['title'] }}" class="hex-bg">
+                            <img src="{{ asset('assets/about/iconHexa4.png') }}" alt="Tiện lợi" class="hex-bg">
                             <div class="hex-overlay">
-                                <h3>{{ $item['title'] }}</h3>
-                                <p>{{ $item['desc'] }}</p>
+                                <h3>Tiện lợi</h3>
+                                <p>Đối tác chuyên nghiệp, phản hồi nhanh chóng, đem lại trải nghiệm dịch vụ tốt nhất.</p>
                             </div>
                         </div>
                     </div>
-                    @endforeach
+
+                    <!-- Tiết kiệm -->
+                    <div class="hex-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                        <div class="hex-content">
+                            <img src="{{ asset('assets/about/iconHexa5.png') }}" alt="Tiết kiệm" class="hex-bg">
+                            <div class="hex-overlay">
+                                <h3>Tiết kiệm</h3>
+                                <p>Tùy chỉnh dịch vụ theo nhu cầu, giúp doanh nghiệp và cá nhân tiết kiệm chi phí.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div>
     </section>
+    
 <section class="our-services py-16">
   <div class="our-services py-16">
     <div class="container mx-auto px-4">
