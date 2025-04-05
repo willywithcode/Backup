@@ -313,15 +313,14 @@
 @endsection
 
 @section('content')
-<div class="relative w-screen h-[600px] hero_section mb-20">
+<img src="{{ asset('assets/logo-logo1.png') }}" alt="Logo Background" style="width: 30%; position: fixed; right: 0; bottom: 0; z-index: 1;">
+<div class="relative w-screen h-[600px] hero_section mb-20" style = "z-index: 10">
     <img src="{{ asset('assets/image3.png') }}" alt="Banner" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 flex items-center justify-center">
         <h1 class="text-white text-4xl md:text-5xl font-bold">Về chúng tôi</h1>
     </div>
 </div>
-<div class="logo-background absolute bottom-0 right-0 z-0 pointer-events-none opacity-10">
-            <img src="{{ asset('assets/logo-logo1.png') }}" alt="Logo Background" class="w-full h-full object-contain">
-    </div>
+
 <!-- About Us Section -->
 <section class="about-us py-16">
     <div class="container-fluid p-0">
@@ -375,7 +374,7 @@
 </section>
 
 <!-- Mission Section -->
-<section class="mission-section py-16">
+<section class="mission-section py-16" style = "z-index: 10">
     <div class="container mx-auto px-4">
         <div class="mission-content text-center mb-16 md:pr-10 md:pl-10">
             <h2 class="text-3xl font-bold text-[#1C1F35] mb-6">Sứ mệnh</h2>
@@ -395,7 +394,7 @@
 </section>
 
 <!-- Why Choose Behind Office Section -->
-<section class="why-choose-section py-16 relative" style="background-image: url('{{ asset('assets/home/Why choice us.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<section class="why-choose-section py-16 relative" style="background-image: url('{{ asset('assets/home/Why choice us.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 10;">
     <div class="container mx-auto px-4">
         <div class="section-title text-center mb-16">
             <h2 class="text-3xl font-bold mx-auto">Tại sao lựa chọn Behind Office</h2>

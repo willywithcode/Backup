@@ -26,7 +26,7 @@
 }
 .our-services {
   position: relative;
-  z-index: 0 !important;
+  z-index: 5 !important;
 }
 
 /* Custom style to remove margin-top on hex-row-offset only in mobile view */
@@ -571,7 +571,7 @@
 @endsection
 
 @section('content')
-<div class="business-service-hero">
+<div class="business-service-hero" style = "z-index: 10">
     <div class="container mx-auto px-40 py-20 relative">
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
             <p class="welcome-text">Welcome</p>
@@ -593,7 +593,7 @@
 </div>
 
 <!-- Our Services Section -->
-<section class="our-services py-16">
+<section class="our-services py-16 ">
   <div class ="our-services py-16">
     <div class="container mx-auto px-4">
         <div class="services-header flex justify-between items-center mb-8">
@@ -604,96 +604,61 @@
             </a>
         </div>
 
-        <!-- Horizontal scrollable services -->
-        <div class="services-container relative">
-            <div class="services-slider overflow-x-auto pb-6">
-                <div class="services-track flex space-x-6" style="min-width: max-content;">
-                    <!-- Service 1 -->
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-card-frame">
-                            <div class="service-image-wrapper">
-                                <img src="{{ asset('assets/home/charming-ethnic-businesswoman-using-laptop 1.png') }}" alt="Trợ lý hành chính giấy tờ" class="service-image">
-                                <div class="service-overlay">
-                                    <div class="service-content">
-                                        <p class="service-description">Giúp doanh nghiệp tiết kiệm thời gian và tối ưu quy trình làm việc. Chúng tôi hỗ trợ soạn thảo, xử lý, lưu trữ và quản lý hồ sơ...</p>
-                                        <a href="{{ route('services.detail', ['slug' => 'tro-ly-hanh-chinh']) }}" class="service-btn">Xem thêm</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="service-title-container">
-                                <h3 class="service-title">Trợ lý hành chính giấy tờ</h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service 2 -->
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-card-frame">
-                            <div class="service-image-wrapper">
-                                <img src="{{ asset('assets/home/side-view-smiley-business-woman 1.png') }}" alt="Trợ lý sắp xếp công việc" class="service-image">
-                                <div class="service-overlay">
-                                    <div class="service-content">
-                                        <p class="service-description">Chúng tôi giúp bạn tổ chức lịch trình, quản lý cuộc họp, và điều phối công việc hiệu quả để tối ưu hóa thời gian và năng suất.</p>
-                                        <a href="{{ route('services.detail', ['slug' => 'tro-ly-ke-toan']) }}" class="service-btn">Xem thêm</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="service-title-container">
-                                <h3 class="service-title">Trợ lý sắp xếp công việc</h3>
+<!-- Horizontal scrollable services -->
+<div class="services-container relative">
+    <div class="services-slider overflow-x-auto pb-6">
+        <div class="services-track flex space-x-6" style="min-width: max-content;">
+            @foreach ($services as $service)
+            <div class="service-card" data-aos="fade-up" data-aos-delay="{{ 100 * $loop->iteration }}">
+                <div class="service-card-frame">
+                    <div class="service-image-wrapper">
+                        <img src="{{ asset($service->thumbnail ?? 'assets/default-service.png') }}"
+                             alt="{{ $service->title }}"
+                             class="service-image">
+                        <div class="service-overlay">
+                            <div class="service-content">
+                                <p class="service-description">
+                                    {{ $service->excerpt ?? Str::limit(strip_tags($service->full_description), 100) }}
+                                </p>
+                                <a href="{{ route('services.detail', ['slug' => $service->slug]) }}" class="service-btn">Xem thêm</a>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Service 3 -->
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service-card-frame">
-                            <div class="service-image-wrapper">
-                                <img src="{{ asset('assets/home/image-young-asian-woman-company-worker-glasses-smiling-holding-digital-tablet-standing-white-background 1.png') }}" alt="Cung cấp nhân lực" class="service-image">
-                                <div class="service-overlay">
-                                    <div class="service-content">
-                                        <p class="service-description">Chúng tôi cung cấp dịch vụ tìm kiếm và tuyển dụng nhân sự chất lượng cao, giúp doanh nghiệp tiết kiệm thời gian và chi phí.</p>
-                                        <a href="{{ route('services.detail', ['slug' => 'giai-quyet-cong-viec']) }}" class="service-btn">Xem thêm</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="service-title-container">
-                                <h3 class="service-title">Cung cấp nhân lực, giải quyết</h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service 4 -->
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="service-card-frame">
-                            <div class="service-image-wrapper">
-                                <img src="{{ asset('assets/home/young-business-lady 1.png') }}" alt="Trợ lý hành chính văn" class="service-image">
-                                <div class="service-overlay">
-                                    <div class="service-content">
-                                        <p class="service-description">Chúng tôi hỗ trợ soạn thảo, hiệu đính và quản lý tài liệu, văn bản để đảm bảo tính chuyên nghiệp và hiệu quả.</p>
-                                        <a href="{{ route('services.detail', ['slug' => 'tro-ly-van-phong']) }}" class="service-btn">Xem thêm</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="service-title-container">
-                                <h3 class="service-title">Trợ lý hành chính văn</h3>
-                            </div>
-                        </div>
+                    <div class="service-title-container">
+                        <h3 class="service-title">{{ $service->title }}</h3>
                     </div>
                 </div>
             </div>
-
-            <!-- Navigation arrows -->
-            <button class="slider-nav-btn slider-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10 flex items-center justify-center" style="display: none;">
-                <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-            </button>
-            <button class="slider-nav-btn slider-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10 flex items-center justify-center" style="display: none;">
-                <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-            </button>
+            @endforeach
         </div>
+    </div>
+
+    <!-- Navigation arrows -->
+    <button class="slider-nav-btn slider-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10 flex items-center justify-center" style="display: none;">
+        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+    </button>
+    <button class="slider-nav-btn slider-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10 flex items-center justify-center" style="display: none;">
+        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+    </button>
+</div>
+
+    <!-- Navigation arrows -->
+    <button class="slider-nav-btn slider-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10 flex items-center justify-center" style="display: none;">
+        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+    </button>
+    <button class="slider-nav-btn slider-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10 flex items-center justify-center" style="display: none;">
+        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+    </button>
+</div>
+
 
         <!-- Pagination dots -->
         <div class="pagination-dots flex justify-center mt-6">
@@ -703,10 +668,9 @@
         </div>
     </div>
 <div>
-<div class="logo-background absolute bottom-0 right-0 z-0 pointer-events-none opacity-10">
-            <img src="{{ asset('assets/logo-logo1.png') }}" alt="Logo Background" class="w-1/4 h-1/4 object-contain">
-</div>
-    <div class="about-us py-16 bg-white relative overflow-hidden">
+
+<img src="{{ asset('assets/logo-logo1.png') }}" alt="Logo Background" style="width: 30%; position: fixed; right: 0; bottom: 0; z-index: 1;">
+    <div class="about-us py-16 bg-white relative overflow-hidden" >
 
     <div class="container-fluid px-0">
         <div class="about-content flex flex-col md:flex-row items-center">
@@ -748,7 +712,7 @@
 </section>
 
 <!-- Why Choose Behind Office Section -->
-<section class="why-choose-section py-16 relative" style="background-image: url('{{ asset('assets/home/Why choice us.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<section class="why-choose-section py-16 relative" style="background-image: url('{{ asset('assets/home/Why choice us.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 10;">
     <div class="container mx-auto px-4">
         <div class="section-title text-center mb-16">
             <h2 class="text-3xl font-bold mx-auto">Tại sao lựa chọn Behind Office</h2>
@@ -821,7 +785,7 @@
 </section>
 
 <!-- Consultation Form Section -->
-<section class="consultation-form relative">
+<section class="consultation-form relative" style = "z-index: 10">
     <div class="absolute inset-0 z-0">
         <img src="{{ asset('assets/home/489440851_977986144496616_8889322225191558916_n.png') }}" alt="Background" class="w-full h-full object-cover">
     </div>
@@ -876,7 +840,7 @@
 </section>
 
 <!-- Testimonials Section -->
-<section class="testimonials py-16 bg-white">
+<section class="testimonials py-16 bg-white" style = "z-index: 10">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-[#1C1F35] mb-6" data-aos="fade-up" data-aos-duration="1000">Khách hàng nói gì về chúng tôi</h2>

@@ -32,7 +32,7 @@ Route::get('ping', function () {
 });
 
 Route::middleware('localization')->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'homePage'])->name('home');
     Route::get('/about_old', [HomeController::class, 'about'])->name('about_old');
     Route::get('/services_old', [HomeController::class, 'services'])->name('services_old');
     Route::get('/contact_old', [HomeController::class, 'contact'])->name('contact_old');
@@ -47,9 +47,8 @@ Route::middleware('localization')->group(function () {
     Route::get('/about', function () {
         return view('guest.about2');
     })->name('about');
-    Route::get('/services', function () {
-        return view('guest.service2');
-    })->name('services');
+    Route::get('/services', [PostController::class, 'services'])->name('services');
+
     Route::get('/contact', function () {
         return view('guest.contact2');
     })->name('contact');
@@ -57,7 +56,7 @@ Route::middleware('localization')->group(function () {
     Route::prefix('products')->group(function () {
         Route::get('/{product}/show', [ProductController::class, 'show'])->name('products.detail');
     });
-    Route::get('/services/{slug}', [HomeController::class, 'serviceDetail'])->name('services.detail');
+    Route::get('/services/{slug}', [PostController::class, 'serviceDetail'])->name('services.detail');
 
 });
 Route::middleware(['auth', 'localization'])->group(function () {

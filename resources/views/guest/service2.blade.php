@@ -77,7 +77,7 @@
         }
         
         .what-we-do {
-            padding: 0 15px;
+            padding: 0 0px;
         }
         
         .intro-section {
@@ -221,16 +221,18 @@
 @endsection
 
 @section('content')
-<div class="relative w-screen h-[600px] hero_section mb-20">
+<img src="{{ asset('assets/logo-logo1.png') }}" alt="Logo Background" style="width: 30%; position: fixed; right: 0; bottom: 0; z-index: 1;">
+ 
+<div class="relative w-screen h-[600px] hero_section mb-20" style = "z-index: 10"> 
     <img src="{{ asset('assets/image3.png') }}" alt="Banner" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 flex items-center justify-center">
         <h1 class="text-white text-4xl md:text-5xl font-bold">Dịch vụ</h1>
     </div>
 </div>
-<div class="what-we-do">
+<div class="">
 
     <!-- Intro Section -->
-    <div class="intro-section">
+    <div class="intro-section" style = "position: relative; z-index: 10">
         <div class="intro-content">
             <h2 class="section-title">Chúng tôi làm gì?</h2>
             <p class="intro-description">
@@ -241,125 +243,41 @@
             <img src="{{ asset('assets/service/Frame 427321334.png') }}" alt="Office Building">
         </div>
     </div>
-    <div class="logo-background absolute bottom-0 right-0 z-0 pointer-events-none opacity-10">
-            <img src="{{ asset('assets/logo-logo1.png') }}" alt="Logo Background" class="w-full h-full object-contain">
-    </div>
-    <!-- Services Container -->
-    <div class="services-container">
-        <!-- Service Item 1 -->
-        <div id="service-01" class="service-item right">
+   <!-- Services Container -->
+<div class="services-container">
+    @foreach ($services as $index => $service)
+        <div id="service-{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}" class="service-item {{ $index % 2 === 0 ? 'right' : 'left' }}">
             <div class="service-block image-block">
-                <img src="{{ asset('assets/service/image1.png') }}" alt="Trợ lý hành chính giấy tờ">
+                <img src="{{ asset($service->thumbnail ?? 'assets/default-service.png') }}" alt="{{ $service->title }}">
             </div>
             <div class="service-block content-block">
-            <div class="service-number" style="left: 50px;">01</div>
-            <div class="service-details">
-                    <h3 class="text-3xl font-bold">Trợ lý hành chính giấy tờ</h3>
-                    <ul>
-                        <li>Soạn thảo, xử lý tài liệu và hợp đồng</li>
-                        <li>Quản lý, lưu trữ hồ sơ và dữ liệu</li>
-                        <li>Hỗ trợ kế toán cơ bản, lập báo cáo tài chính</li>
-                        <li>Chuẩn bị tài liệu, hồ sơ cho các cuộc họp</li>
-                        <li>Giao tiếp & Điều phối thông tin</li>
-                        <li>Quản lý vật tư văn phòng</li>
-                        <li>Hỗ trợ tổ chức sự kiện & hội họp</li>
-                    </ul>
-                    <a href="{{ route('services.detail', ['slug' => 'tro-ly-hanh-chinh']) }}" class="learn-more">Xem thêm</a>
-                </div>
-            </div>
-        </div>
+                <div class="service-number" style="left: 50px;">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</div>
+                <div class="service-details">
+                    <h3 class="text-3xl font-bold">{{ $service->title }}</h3>
+                    
+                    @if (!empty($service->excerpt))
+                        <p>{{ $service->excerpt }}</p>
+                    @endif
+                    
+                    @if ($service->content)
+                        <ul>
+                            @foreach (explode("\n", strip_tags($service->content)) as $line)
+                                @if (trim($line) !== '')
+                                    <li>{{ $line }}</li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    @endif
 
-        <!-- Service Item 2 -->
-        <div id="service-02" class="service-item left">
-            <div class="service-block image-block">
-                <img src="{{ asset('assets/service/image2.png') }}" alt="Trợ lý kế toán công việc, booking">
-            </div>
-            <div class="service-block content-block">
-            <div class="service-number" style="left: 50px;">02</div>
-            <div class="service-details">
-                    <h3 class="text-3xl font-bold">Trợ lý kế toán công việc, booking</h3>
-                    <ul>
-                        <li>Quản lý lịch trình, sắp xếp cuộc họp</li>
-                        <li>Theo dõi và nhắc nhở các nhiệm vụ quan trọng</li>
-                        <li>Hỗ trợ tổ chức sự kiện, hội nghị</li>
-                        <li>Đặt vé máy bay, khách sạn, phương tiện di chuyển</li>
-                        <li>Quản lý truyền thông nội bộ</li>
-                        <li>Hỗ trợ pháp lý cơ bản</li>
-                        <li>Kiểm soát chi phí và ngân sách văn phòng</li>
-                    </ul>
-                    <a href="{{ route('services.detail', ['slug' => 'tro-ly-ke-toan']) }}" class="learn-more">Xem thêm</a>
+                    <a href="{{ route('services.detail', ['slug' => $service->slug]) }}" class="learn-more">Xem thêm</a>
                 </div>
             </div>
         </div>
-
-        <!-- Service Item 3 -->
-        <div id="service-03" class="service-item right">
-            <div class="service-block image-block">
-                <img src="{{ asset('assets/service/image3.png') }}" alt="Cung cấp thông tin, giải quyết các công việc khác">
-            </div>
-            <div class="service-block content-block">
-            <div class="service-number" style="left: 50px;">03</div>
-            <div class="service-details">
-                    <h3 class="text-3xl font-bold">Cung cấp thông tin, giải quyết các công việc khác</h3>
-                    <ul>
-                        <li>Quản lý lịch trình, sắp xếp cuộc họp</li>
-                        <li>Theo dõi và nhắc nhở các nhiệm vụ quan trọng</li>
-                        <li>Hỗ trợ tổ chức sự kiện, hội nghị</li>
-                        <li>Đặt vé máy bay, khách sạn, phương tiện di chuyển</li>
-                        <li>Hỗ trợ giám đốc hoặc quản lý cấp cao</li>
-                        <li>Hỗ trợ khách hàng và đối tác</li>
-                        <li>Hỗ trợ pháp lý cơ bản</li>
-                    </ul>
-                    <a href="{{ route('services.detail', ['slug' => 'giai-quyet-cong-viec']) }}" class="learn-more">Xem thêm</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Service Item 4 -->
-        <div id="service-04" class="service-item left">
-            <div class="service-block image-block">
-                <img src="{{ asset('assets/service/image4.png') }}" alt="Trợ lý hành chính văn phòng">
-            </div>
-            <div class="service-block content-block">
-            <div class="service-number" style="left: 50px;">04</div>
-            <div class="service-details">
-                    <h3 class="text-3xl font-bold">Trợ lý hành chính văn phòng</h3>
-                    <ul>
-                        <li>Quản lý văn phòng phẩm, thiết bị làm việc</li>
-                        <li>Tiếp nhận và xử lý thư từ, email công ty</li>
-                        <li>Hỗ trợ vận hành văn phòng, đảm bảo môi trường làm việc hiệu quả</li>
-                        <li>Quản lý, lưu trữ hồ sơ và dữ liệu</li>
-                        <li>Hỗ trợ kế toán cơ bản, lập báo cáo tài chính</li>
-                    </ul>
-                    <a href="{{ route('services.detail', ['slug' => 'tro-ly-van-phong']) }}" class="learn-more">Xem thêm</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Service Item 5 -->
-        <div id="service-05" class="service-item right">
-            <div class="service-block image-block">
-                <img src="{{ asset('assets/service/image5.png') }}" alt="Giao hàng và văn phòng">
-            </div>
-            <div class="service-block content-block">
-            <div class="service-number" style="left: 50px;">05</div>
-            <div class="service-details">
-                    <h3 class="text-3xl font-bold">Giao hàng và văn phòng</h3>
-                    <ul>
-                        <li>Giám sát hoạt động của gian hàng, đảm bảo tuân thủ quy trình làm việc</li>
-                        <li>Quản lý hàng hóa, kiểm kê sản phẩm, báo cáo tình trạng tồn kho</li>
-                        <li>Quản lý văn phòng phẩm, đặt hàng khi cần</li>
-                        <li>Kiểm soát chi phí vận hành văn phòng, đề xuất các giải pháp tiết kiệm chi phí</li>
-                        <li>Hỗ trợ tổ chức hội thảo, sự kiện nội bộ tại văn phòng</li>
-                    </ul>
-                    <a href="{{ route('services.detail', ['slug' => 'giao-hang-van-phong']) }}" class="learn-more">Xem thêm</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    @endforeach
 </div>
+
 <!-- Consultation Form Section -->
-<section class="consultation-form relative">
+<section class="consultation-form relative w-full" style = "z-index: 10">
     <div class="absolute inset-0 z-0">
         <img src="{{ asset('assets/home/489440851_977986144496616_8889322225191558916_n.png') }}" alt="Background" class="w-full h-full object-cover">
     </div>
