@@ -1,0 +1,9 @@
+[33mcommit 96483d812a58e9c0dffd17217cdd9a5c1ea7e332[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Dũng Nguyễn <97029679+willywithcode@users.noreply.github.com>
+Date:   Sat Apr 5 14:37:44 2025 +0700
+
+    fix background logo
+
+ resources/views/guest/business_services.blade.php | 6 [32m+++[m[31m---[m
+ resources/views/guest/service2.blade.php          | 2 [32m+[m[31m-[m
+ 2 files changed, 4 insertions(+), 4 deletions(-)
