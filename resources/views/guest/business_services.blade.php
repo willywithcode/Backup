@@ -314,35 +314,38 @@
         }
 
         .about-content {
-            padding: 0 20px;
-            text-align: center !important;
+            padding: 0 15px;
         }
-
+        
+        .about-image {
+            width: 100% !important;
+        }
+        
         .about-text {
-            padding-right: 20px !important;
-            text-align: center !important;
+            width: 100% !important;
+            padding: 15px !important;
+            margin-top: 50px;
         }
-
-        .about-text div, .about-text p, .about-text h2 {
-            text-align: center !important;
-        }
-
-        .story-tag {
-            margin: 0 auto !important;
-            display: inline-block !important;
-        }
-
+        
         .project-count {
-            position: absolute !important;
-            bottom: -30px !important;
-            right: 0 !important;
+            position: relative !important;
+            width: 90% !important;
+            max-width: none !important;
+            right: auto !important;
             left: auto !important;
-            width: 80% !important;
-            max-width: 280px !important;
+            margin: 20px auto !important;
             transform: none !important;
-            margin-top: 0 !important;
+            bottom: auto !important;
+        }
+
+        .project-count .text {
+            white-space: normal !important;
             text-align: center !important;
-            z-index: 5 !important;
+            width: 100% !important;
+        }
+        
+        .hex-item {
+            margin: 10px auto !important;
         }
 
         .about-action {

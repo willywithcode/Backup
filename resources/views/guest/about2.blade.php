@@ -111,8 +111,20 @@
     }
     
     .project-count {
-        width: 70% !important;
-        right: 0 !important;
+        position: relative !important;
+        width: 90% !important;
+        max-width: none !important;
+        right: auto !important;
+        left: auto !important;
+        margin: 20px auto !important;
+        transform: none !important;
+        bottom: auto !important;
+    }
+
+    .project-count .text {
+        white-space: normal !important;
+        text-align: center !important;
+        width: 100% !important;
     }
     
     .hex-item {
