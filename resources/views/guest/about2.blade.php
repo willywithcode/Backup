@@ -12,7 +12,7 @@
   width: 600px;
   height: auto;
   opacity: 1;
-  z-index: 1; 
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -96,20 +96,16 @@
 }
 
 @media (max-width: 768px) {
-    .about-content {
-        padding: 0 15px;
-    }
-    
     .about-image {
         width: 100% !important;
     }
-    
+
     .about-text {
         width: 100% !important;
         padding: 15px !important;
         margin-top: 50px;
     }
-    
+
     .project-count {
         position: relative !important;
         width: 90% !important;
@@ -126,15 +122,15 @@
         text-align: center !important;
         width: 100% !important;
     }
-    
+
     .hex-item {
         margin: 10px auto !important;
     }
-    
+
     .hexagon-grid {
         padding: 0 10px;
     }
-    
+
     .consultation-content {
         padding-left: 15px !important;
         padding-right: 15px !important;
@@ -145,37 +141,37 @@
         width: 100% !important;
         margin-bottom: 20px !important;
     }
-    
+
     .consultation-form-container {
         padding: 0 15px !important;
         width: 100% !important;
     }
-    
+
     .form-row.grid {
         display: flex !important;
         flex-direction: column !important;
         grid-template-columns: unset !important;
     }
-    
+
     .form-row {
         text-align: center !important;
         margin-bottom: 15px !important;
     }
-    
+
     .form-group {
         width: 100% !important;
         margin-bottom: 15px !important;
     }
-    
+
     .form-control {
         width: 100% !important;
     }
-    
+
     textarea.form-control {
         width: 100% !important;
         min-height: 120px !important;
     }
-    
+
     .submit-btn {
         width: 100% !important;
         margin: 0 auto !important;
@@ -190,11 +186,11 @@
         left: 0 !important;
         margin: 0 auto;
     }
-    
+
     .hero_section {
         height: 400px !important;
     }
-    
+
     .hero_section h1 {
         font-size: 1.8rem !important;
     }
@@ -238,9 +234,9 @@
     z-index: 2;
 }
 
-.why-choose-section h2, 
-.why-choose-section .hex-item, 
-.why-choose-section .hex-content, 
+.why-choose-section h2,
+.why-choose-section .hex-item,
+.why-choose-section .hex-content,
 .why-choose-section .hex-overlay {
     position: relative;
     z-index: 2;
@@ -250,17 +246,17 @@
     .why-choose-bg-container {
         display: none;
     }
-    
+
     .why-choose-section {
         background-color: #002d56;
     }
-    
+
     .hex-row, .hex-row-offset {
         flex-direction: column;
         align-items: center;
         margin: 0;
     }
-    
+
     /* Improved form styles for mobile */
     .consultation-content {
         padding-left: 15px !important;
@@ -272,37 +268,37 @@
         width: 100% !important;
         margin-bottom: 20px !important;
     }
-    
+
     .consultation-form-container {
         padding: 0 15px !important;
         width: 100% !important;
     }
-    
+
     .form-row.grid {
         display: flex !important;
         flex-direction: column !important;
         grid-template-columns: unset !important;
     }
-    
+
     .form-row {
         text-align: center !important;
         margin-bottom: 15px !important;
     }
-    
+
     .form-group {
         width: 100% !important;
         margin-bottom: 15px !important;
     }
-    
+
     .form-control {
         width: 100% !important;
     }
-    
+
     textarea.form-control {
         width: 100% !important;
         min-height: 120px !important;
     }
-    
+
     .submit-btn {
         width: 100% !important;
         margin: 0 auto !important;
@@ -342,7 +338,7 @@
                 </div>
             </div>
             <div class="about-image w-full md:w-1/10 mb-8 md:mb-0 relative" data-aos="fade-right" data-aos-duration="1000">
-                
+
             </div>
             <!-- Text content moved to right -->
             <div class="about-text w-full md:w-1/2 md:pr-40" data-aos="fade-left" data-aos-duration="1000">
@@ -472,7 +468,7 @@
     <div class="absolute inset-0 z-0">
         <img src="{{ asset('assets/home/whitebg.png') }}" alt="Background" class="w-full h-full object-cover">
     </div>
-    
+
     <!-- Overlay -->
     <div class="absolute inset-0  z-[1]"></div>
 
@@ -489,7 +485,7 @@
                     Lorem ipsum dolor sit amet consectetur. Senectus nulla faucibus feugiat mi et mattis risus tortor. Elementum elementum scelerisque ac ac placerat eget ultrices. Sit ac varius commodo egestas.
                 </p>
             </div>
-            
+
             <!-- Right Form -->
             <div class="consultation-form-container" data-aos="fade-left" data-aos-duration="1000">
                 <form class="consultation-form-fields">
@@ -501,7 +497,7 @@
                             <input type="email" placeholder="Email" class="form-control bg-white/80 text-black placeholder-gray-600 rounded px-4 py-2 w-full">
                         </div>
                     </div>
-                    
+
                     <div class="form-row grid grid-cols-2 gap-4 mb-4">
                         <div class="form-group">
                             <input type="tel" placeholder="Số điện thoại" class="form-control bg-white/80 text-black placeholder-gray-600 rounded px-4 py-2 w-full">
@@ -510,11 +506,11 @@
                             <input type="text" placeholder="Tỉnh thành" class="form-control bg-white/80 text-black placeholder-gray-600 rounded px-4 py-2 w-full">
                         </div>
                     </div>
-                    
+
                     <div class="form-row mb-4">
                         <textarea rows="4" placeholder="Lời nhắn..." class="form-control bg-white/80 text-black placeholder-gray-600 rounded px-4 py-2 w-full"></textarea>
                     </div>
-                    
+
                     <div class="form-row">
                         <button type="submit" class="submit-btn bg-[#3498db] hover:bg-blue-700 transition px-6 py-3 rounded-lg text-white font-semibold">GỬI YÊU CẦU</button>
                     </div>
