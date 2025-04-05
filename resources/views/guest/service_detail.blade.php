@@ -5,9 +5,9 @@
 <style>
 .bo-service-detail-button {
     position: absolute;
-    top: 100%;           
-    right: 0;         
-    transform: translateY(-50%) translateX(10%);  
+    top: 100%;
+    right: 0;
+    transform: translateY(-50%) translateX(10%);
     background-color:rgb(111, 188, 255);
     color: white;
     padding: 10px 18px;
@@ -150,7 +150,6 @@
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    margin-top: 1.5rem;
 }
 
 .dot {

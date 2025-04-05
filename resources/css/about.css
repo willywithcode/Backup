@@ -21,10 +21,6 @@
     letter-spacing: 0.05em;
 }
 
-.about-text {
-    padding-right: 2rem;
-}
-
 .about-text h2 {
     font-size: 2.5rem;
     line-height: 1.2;
@@ -189,15 +185,15 @@
         height: 220px;
         margin: 0 10px 30px;
     }
-    
+
     .hexagon-row-2 {
         margin-top: -30px;
     }
-    
+
     .hexagon-overlay h3 {
         font-size: 1rem;
     }
-    
+
     .hexagon-overlay p {
         font-size: 0.75rem;
     }
@@ -208,13 +204,13 @@
         flex-direction: column;
         align-items: center;
     }
-    
+
     .hexagon-item {
         width: 220px;
         height: 240px;
         margin: 15px 0;
     }
-    
+
     .hexagon-row-2 {
         margin-top: 0;
         flex-direction: column;
@@ -349,15 +345,15 @@
         height: 220px;
         margin: 0 10px;
     }
-    
+
     .hex-overlay {
         padding: 20px;
     }
-    
+
     .hex-overlay h3 {
         font-size: 1.3rem;
     }
-    
+
     .hex-overlay p {
         font-size: 0.85rem;
     }
@@ -369,12 +365,12 @@
         height: 190px;
         margin: 0 7px;
     }
-    
+
     .hex-overlay h3 {
         font-size: 1.2rem;
         margin-bottom: 10px;
     }
-    
+
     .hex-overlay p {
         font-size: 0.8rem;
     }
@@ -385,11 +381,11 @@
         flex-wrap: wrap;
         margin-bottom: 20px;
     }
-    
+
     .hex-row-offset {
         margin-top: 0;
     }
-    
+
     .hex-item {
         width: 200px;
         height: 175px;
@@ -403,23 +399,23 @@
         flex-direction: column;
         align-items: center;
     }
-    
+
     .hex-row {
         flex-direction: column;
         align-items: center;
         margin-bottom: 0;
     }
-    
+
     .hex-item {
         width: 220px;
         height: 190px;
         margin: 15px 0;
     }
-    
+
     .hex-overlay h3 {
         font-size: 1.25rem;
     }
-    
+
     .hex-overlay p {
         font-size: 0.85rem;
     }
