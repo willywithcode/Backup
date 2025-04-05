@@ -388,6 +388,9 @@
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
+  .left-1\/2 {
+    left: calc(1/2 * 100%);
+  }
   .left-2 {
     left: calc(var(--spacing) * 2);
   }
@@ -1234,9 +1237,6 @@
   .max-w-none {
     max-width: none;
   }
-  .max-w-xs {
-    max-width: var(--container-xs);
-  }
   .min-w-25 {
     min-width: calc(var(--spacing) * 25);
   }
@@ -1284,6 +1284,10 @@
   }
   .border-collapse {
     border-collapse: collapse;
+  }
+  .-translate-x-1\/2 {
+    --tw-translate-x: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-x-full {
     --tw-translate-x: -100%;
@@ -1637,6 +1641,9 @@
   }
   .bg-\[\#1C1F35\] {
     background-color: #1C1F35;
+  }
+  .bg-\[\#2EA7E0\] {
+    background-color: #2EA7E0;
   }
   .bg-\[\#071B35\] {
     background-color: #071B35;
@@ -2304,6 +2311,9 @@
   .whitespace-nowrap {
     white-space: nowrap;
   }
+  .whitespace-pre-line {
+    white-space: pre-line;
+  }
   .text-\[\#1C1F35\] {
     color: #1C1F35;
   }
@@ -2595,6 +2605,14 @@
       border-color: #C1262E;
     }
   }
+  .hover\:-translate-y-1 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-translate-y: calc(var(--spacing) * -1);
+        translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
+    }
+  }
   .hover\:scale-105 {
     &:hover {
       @media (hover: hover) {
@@ -2857,6 +2875,21 @@
       top: 60%;
     }
   }
+  .md\:-right-10 {
+    @media (width >= 48rem) {
+      right: calc(var(--spacing) * -10);
+    }
+  }
+  .md\:-bottom-12 {
+    @media (width >= 48rem) {
+      bottom: calc(var(--spacing) * -12);
+    }
+  }
+  .md\:left-0 {
+    @media (width >= 48rem) {
+      left: calc(var(--spacing) * 0);
+    }
+  }
   .md\:left-\[20\%\] {
     @media (width >= 48rem) {
       left: 20%;
@@ -2875,6 +2908,11 @@
   .md\:mt-12 {
     @media (width >= 48rem) {
       margin-top: calc(var(--spacing) * 12);
+    }
+  }
+  .md\:mt-20 {
+    @media (width >= 48rem) {
+      margin-top: calc(var(--spacing) * 20);
     }
   }
   .md\:mb-0 {
@@ -2922,6 +2960,11 @@
       display: none;
     }
   }
+  .md\:inline {
+    @media (width >= 48rem) {
+      display: inline;
+    }
+  }
   .md\:h-64 {
     @media (width >= 48rem) {
       height: calc(var(--spacing) * 64);
@@ -2957,6 +3000,11 @@
       width: calc(4/5 * 100%);
     }
   }
+  .md\:w-80 {
+    @media (width >= 48rem) {
+      width: calc(var(--spacing) * 80);
+    }
+  }
   .md\:w-\[307px\] {
     @media (width >= 48rem) {
       width: 307px;
@@ -2965,6 +3013,11 @@
   .md\:w-\[400px\] {
     @media (width >= 48rem) {
       width: 400px;
+    }
+  }
+  .md\:transform-none {
+    @media (width >= 48rem) {
+      transform: none;
     }
   }
   .md\:grid-cols-2 {
@@ -2987,6 +3040,11 @@
       flex-direction: row;
     }
   }
+  .md\:justify-start {
+    @media (width >= 48rem) {
+      justify-content: flex-start;
+    }
+  }
   .md\:gap-3\.5 {
     @media (width >= 48rem) {
       gap: calc(var(--spacing) * 3.5);
@@ -3000,6 +3058,11 @@
   .md\:gap-8 {
     @media (width >= 48rem) {
       gap: calc(var(--spacing) * 8);
+    }
+  }
+  .md\:gap-24 {
+    @media (width >= 48rem) {
+      gap: calc(var(--spacing) * 24);
     }
   }
   .md\:space-y-3 {
@@ -3113,6 +3176,11 @@
   .md\:pl-10 {
     @media (width >= 48rem) {
       padding-left: calc(var(--spacing) * 10);
+    }
+  }
+  .md\:text-left {
+    @media (width >= 48rem) {
+      text-align: left;
     }
   }
   .md\:text-2xl {
@@ -3628,7 +3696,6 @@
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 1rem;
 }
 .dot {
   width: 10px;
@@ -3686,7 +3753,6 @@
     align-items: center;
     gap: 1rem;
     text-align: center;
-    margin-bottom: 20px;
   }
   .quote-btn {
     margin: 0 auto;
@@ -3708,7 +3774,6 @@
     margin-top: 0;
   }
   .about-content {
-    padding: 0 20px;
     text-align: center;
   }
   .about-text {
@@ -3738,8 +3803,6 @@
   }
   .about-image {
     position: relative;
-    padding-bottom: 40px;
-    margin-bottom: 40px !important;
   }
   .why-choose-us__title, .why-choose-us__subtitle {
     text-align: center;
@@ -4400,9 +4463,6 @@ textarea.form-control {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.services-container {
-  padding: 0 20px;
-}
 .service-item {
   display: flex;
   gap: 40px;
@@ -4951,9 +5011,6 @@ textarea.form-control {
   font-weight: 600;
   letter-spacing: 0.05em;
 }
-.about-text {
-  padding-right: 2rem;
-}
 .about-text h2 {
   font-size: 2.5rem;
   line-height: 1.2;
@@ -5291,10 +5348,6 @@ textarea.form-control {
 html {
   font-family: 'Inter', sans-serif;
   scroll-behavior: smooth;
-}
-.container {
-  overflow-x: hidden;
-  max-width: 100%;
 }
 [x-cloak] {
   display: none !important;
