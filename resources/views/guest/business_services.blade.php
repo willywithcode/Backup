@@ -536,7 +536,7 @@
     }
 
     .behindoffice-popup__submit {
-        width: 100%;
+        width: 20%;
         background-color: #3498db;
         color: white;
         border: none;
