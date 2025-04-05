@@ -544,8 +544,8 @@
     <div class="container mx-auto px-4">
         <div class="services-header flex justify-between items-center mb-8">
             <h2 class="section-title text-2xl md:text-3xl font-bold text-[#1C1F35]">Dịch vụ của chúng tôi</h2>
-            <a href="#" class="quote-btn bg-[#3498db] text-white px-8 py-3 rounded flex items-center whitespace-nowrap w-44 justify-center">
-                <img src="{{ asset('assets/home/Vector.png') }}" alt="Quote Icon" class="w-5 h-5 mr-2">
+            <a href="#" class="quote-btn text-white px-8 py-3 rounded flex items-center whitespace-nowrap w-44 justify-center" style="background: linear-gradient(to right, #2990D0, #15496A)">
+                <img src="{{ asset('assets/home/Vector.png') }}" alt="Quote Icon" class="w-5 h-4 mr-2">
                 Nhận báo giá
             </a>
         </div>
@@ -815,7 +815,7 @@
                     </div>
 
                     <div class="form-row">
-                        <button type="submit" class="submit-btn">GỬI YÊU CẦU</button>
+                        <button type="submit" class="submit-btn" style="background-color: #122B47;">GỬI YÊU CẦU</button>
                     </div>
                 </form>
             </div>
