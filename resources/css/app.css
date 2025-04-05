@@ -814,6 +814,7 @@ ul.custom-bullets li::before {
     font-weight: 400;
     white-space: nowrap;
     margin-right: -2px; /* Counteract the border */
+    min-width: 240px; /* Increased from 200px to make it longer */
 }
 
 .behindoffice-call-box strong {

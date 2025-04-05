@@ -4,8 +4,29 @@
 @parent
 <link href="{{ asset('resources/css/service.css') }}" rel="stylesheet">
 <style>
-    /* Form styling for all devices */
-    .form-control {
+.logo-background {
+  position: absolute;
+  top: 1150px;
+  right: -50px;
+  width: 500px;
+  height: auto;
+  opacity: 1;
+  z-index: -1; 
+  pointer-events: none;
+}
+
+.logo-background img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}    
+.intro-image img {
+    position: relative;
+    z-index: -2;
+}
+
+.form-control {
         width: 100%;
         padding: 12px;
         border-radius: 6px;
@@ -208,7 +229,6 @@
 </div>
 <div class="what-we-do">
 
-
     <!-- Intro Section -->
     <div class="intro-section">
         <div class="intro-content">
@@ -217,11 +237,13 @@
                 Tại Behind Office, chúng tôi hiểu rằng thời gian là tài sản quý giá nhất của bạn. Vì vậy, chúng tôi cung cấp dịch vụ trợ lý chuyên nghiệp giúp doanh nghiệp và cá nhân tối ưu hóa công việc, giảm tải áp lực hành chính và tập trung vào các mục tiêu quan trọng
             </p>
         </div>
-        <div class="intro-image">
+        <div class="intro-image relative" data-aos="fade-up" data-aos-duration="1000">
             <img src="{{ asset('assets/service/Frame 427321334.png') }}" alt="Office Building">
         </div>
     </div>
-    
+    <div class="logo-background absolute bottom-0 right-0 z-0 pointer-events-none opacity-10">
+            <img src="{{ asset('assets/logo-logo1.png') }}" alt="Logo Background" class="w-full h-full object-contain">
+    </div>
     <!-- Services Container -->
     <div class="services-container">
         <!-- Service Item 1 -->

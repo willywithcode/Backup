@@ -4,6 +4,29 @@
 @parent
 <link href="{{ asset('resources/css/about.css') }}" rel="stylesheet">
 <style>
+
+.logo-background {
+  position: absolute;
+  top: 1100px;
+  right: -50px;
+  width: 600px;
+  height: auto;
+  opacity: 1;
+  z-index: 1; 
+  pointer-events: none;
+}
+
+.logo-background img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.vision-image img {
+    position: relative;
+    z-index: 1;
+}
+
     .consultation-form {
     position: relative;
     overflow: hidden;
@@ -271,8 +294,11 @@
         <h1 class="text-white text-4xl md:text-5xl font-bold">Về chúng tôi</h1>
     </div>
 </div>
+<div class="logo-background absolute bottom-0 right-0 z-0 pointer-events-none opacity-10">
+            <img src="{{ asset('assets/logo-logo1.png') }}" alt="Logo Background" class="w-full h-full object-contain">
+    </div>
 <!-- About Us Section -->
-<section class="about-us py-16 bg-[#f8f9fa]">
+<section class="about-us py-16">
     <div class="container-fluid p-0">
         <div class="about-content flex flex-col md:flex-row items-center">
             <!-- Image moved to left -->
@@ -316,9 +342,10 @@
                 Tại Behind Office, chúng tôi hiểu rằng thời gian là tài sản quý giá nhất của bạn. Vì vậy, chúng tôi cung cấp dịch vụ trợ lý chuyên nghiệp giúp doanh nghiệp và cá nhân tối ưu hóa công việc, giảm tải áp lực hành chính và tập trung vào các mục tiêu quan trọng.
             </p>
         </div>
-        <div class="vision-image" data-aos="fade-up" data-aos-duration="1000">
-            <img src="{{ asset('assets/about/image (1).png') }}" alt="Vision" class="w-full h-auto rounded-lg">
-        </div>
+        <div class="vision-image relative" data-aos="fade-up" data-aos-duration="1000">
+    <img src="{{ asset('assets/about/image (1).png') }}" alt="Vision" class="w-full h-auto rounded-lg z-[1] relative">
+</div>
+
     </div>
 </section>
 
@@ -334,7 +361,7 @@
         <div class="mission-image" data-aos="fade-up" data-aos-duration="1000">
             <img src="{{ asset('assets/about/pexels-fauxels-3183150 1.png') }}" alt="Mission" class="w-full h-auto rounded-lg">
         </div>
-        <div class="mission-content text-center md:pr-10 md:pl-10 mt-10">
+        <div class="mission-content text-center md:pr-10 md:pl-10 mt-10" style="margin-top: 50px;">
             <p class="text-gray-700 w-full mx-auto text-center">
             Behind Office cam kết mang đến dịch vụ trợ lý chuyên nghiệp, giúp cá nhân và doanh nghiệp tối ưu hóa công việc, tiết kiệm thời gian và nâng cao hiệu suất. Chúng tôi không chỉ hỗ trợ, mà còn đồng hành cùng khách hàng trong mọi thử thách, đảm bảo quy trình làm việc hiệu quả, bảo mật và linh hoạt nhất.
             </p>
@@ -343,15 +370,12 @@
 </section>
 
 <!-- Why Choose Behind Office Section -->
-<section class="why-choose-section py-16">
-    <div class="why-choose-bg-container">
-        <img src="{{ asset('assets/home/Why choice us.png') }}" alt="Why Choose Us Background">
-    </div>
+<section class="why-choose-section py-16 relative" style="background-image: url('{{ asset('assets/home/Why choice us.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="container mx-auto px-4">
         <div class="section-title text-center mb-16">
             <h2 class="text-3xl font-bold mx-auto">Tại sao lựa chọn Behind Office</h2>
         </div>
-        
+
         <div class="hexagon-grid">
             <!-- Top Row -->
             <div class="hex-row">
@@ -365,7 +389,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Hiệu quả -->
                 <div class="hex-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                     <div class="hex-content">
@@ -376,7 +400,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Uy tín -->
                 <div class="hex-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                     <div class="hex-content">
@@ -388,9 +412,9 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Bottom Row - Offset -->
-            <div class="hex-row hex-row-offset" style="margin-top: -80px">
+            <div class="hex-row hex-row-offset" style="margin-top: -87px">
                 <!-- Tiện lợi -->
                 <div class="hex-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                     <div class="hex-content">
@@ -401,7 +425,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Tiết kiệm -->
                 <div class="hex-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                     <div class="hex-content">
@@ -415,6 +439,7 @@
             </div>
         </div>
     </div>
+    <div>
 </section>
 
 <!-- Consultation Form Section -->
@@ -433,7 +458,7 @@
             <!-- Left Content -->
             <div class="consultation-content text-black" data-aos="fade-right" data-aos-duration="1000" style="padding-left: 100px;">
                 <div class="consultation-label">
-                    <span class="text-sm uppercase tracking-wide text-[#7ec9ff]">TƯ VẤN VÀ BÁO GIÁ</span>
+                    <span class="text-sm uppercase tracking-wide ">TƯ VẤN VÀ BÁO GIÁ</span>
                 </div>
                 <h2 class="consultation-title text-3xl font-bold mb-4">Phát triển doanh nghiệp mà không đánh đổi thời gian rảnh</h2>
                 <p class="consultation-description text-black/80">

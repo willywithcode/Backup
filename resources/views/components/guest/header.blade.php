@@ -31,11 +31,7 @@
 
         {{-- Call Us (luôn nằm ngoài container, bên phải) --}}
         <div class="behindoffice-call-box hidden md:flex items-center h-full bg-blue-500 text-white px-10 min-w-[200px] justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" stroke-width="2" class="behindoffice-call-icon w-5 h-5 mr-2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M3 5a2 2 0 012-2h1.586a1 1 0 01.707.293l1.414 1.414a1 1 0 01.293.707V7a2 2 0 01-2 2H6v1a11 11 0 0011 11h1a2 2 0 012-2v-1a2 2 0 012-2h1.586a1 1 0 01.707.293l1.414 1.414a1 1 0 01.293.707V21a2 2 0 01-2 2h-1a19 19 0 01-19-19V5z" />
-            </svg>
+        
             <img src="{{ asset('assets/Vector.png') }}" alt="Call Icon" class="w-5 h-5 mr-2" />
             <span><strong>Call Us</strong> +84 878 799 866</span>
         </div>
