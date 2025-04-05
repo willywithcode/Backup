@@ -26,20 +26,25 @@
     }
     
     .submit-btn {
-        background-color: #3498db;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        padding: 12px 24px;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    
-    .submit-btn:hover {
-        background-color: #2980b9;
-    }
+    background-color: #071B35;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.submit-btn:hover {
+    background-color: #0a2348;
+}
+
     
     .consultation-form {
         position: relative;
@@ -228,7 +233,7 @@
                     </div>
                     
                     <div class="form-row">
-                        <button type="submit" class="submit-btn">GỬI YÊU CẦU</button>
+                        <button type="submit" class="submit-btn" style="background-color: #122B47;">GỬI YÊU CẦU</button>
                     </div>
                 </form>
             </div>

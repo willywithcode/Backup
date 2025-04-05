@@ -513,6 +513,44 @@
             padding: 12px !important;
         }
     }
+
+    /* Popup form input styles */
+    .behindoffice-popup__input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: rgba(255, 255, 255, 0.8);
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+
+    .behindoffice-popup__input:focus {
+        outline: none;
+        border-color: #3498db;
+        box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.25);
+    }
+
+    .behindoffice-popup__input::placeholder {
+        color: #6c757d;
+    }
+
+    .behindoffice-popup__submit {
+        width: 100%;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .behindoffice-popup__submit:hover {
+        background-color: #2980b9;
+    }
 </style>
 @endsection
 
@@ -923,8 +961,15 @@
 
     <div class="behindoffice-popup__modal relative bg-white rounded-xl shadow-2xl p-8 w-full max-w-md z-10 text-center" style="background: linear-gradient(135deg, #e8f3ff, #ffffff);">
         <button id="behindoffice-popup-close" class="absolute top-3 right-3 text-gray-500 hover:text-black text-2xl">&times;</button>
-        <h2 class="text-2xl font-bold text-[#002D56] mb-1">BEHIND OFFICE</h2>
-        <div class="w-12 h-1 mx-auto bg-[#002D56] rounded-full mb-4"></div>
+        
+        <div class="flex justify-center">
+            <div class="relative mb-5 mt-2 inline-block">
+                <div style="width: 30%; height: 3px; background-color: #2990D0; position: absolute; top: -10px; left: 0; border-radius: 2px;"></div>
+                <h2 class="text-2xl font-bold text-[#002D56] mb-1">BEHIND OFFICE</h2>
+                <div style="width: 20%; height: 3px; background-color: #2990D0; position: absolute; bottom: -10px; right: 0; border-radius: 2px;"></div>
+            </div>
+        </div>
+        
         <p class="text-gray-600 text-sm mb-6">Vui lòng điền thông tin chi tiết chúng tôi sẽ liên hệ tư vấn!</p>
 
         <form>
