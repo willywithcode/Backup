@@ -607,7 +607,7 @@
                 <!-- Left Content -->
                 <div class="consultation-content text-black" data-aos="fade-right" data-aos-duration="1000"
                     style="padding-left: 100px;">
-                    <div class="consultation-label">
+                    <div class="consultation-label" style="background-color:#3498db">
                         <span class="text-sm uppercase tracking-wide ">TƯ VẤN VÀ BÁO GIÁ</span>
                     </div>
                     <h2 class="consultation-title text-3xl font-bold mb-4">Phát triển doanh nghiệp mà không đánh đổi thời
