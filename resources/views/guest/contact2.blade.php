@@ -93,7 +93,7 @@
             flex-direction: column !important;
             align-items: center !important;
             width: 100% !important;
-            margin-bottom: 20px !important;
+            margin-bottom: -10px !important;
         }
 
         .consultation-form-container {
@@ -200,9 +200,9 @@
                     <span>TƯ VẤN VÀ BÁO GIÁ</span>
                 </div>
                 <h2 class="consultation-title">Phát triển doanh nghiệp mà không đánh đổi thời gian rảnh</h2>
-                <p class="consultation-description">
+                {{-- <p class="consultation-description">
                     Lorem ipsum dolor sit amet consectetur. Senectus nulla faucibus feugiat mi et mattis risus tortor. Elementum elementum scelerisque ac ac placerat eget ultrices. Sit ac varius commodo egestas.
-                </p>
+                </p> --}}
             </div>
 
             <!-- Right Form -->
