@@ -1,5 +1,9 @@
 @import "tailwindcss";
 @source "../views";
+@import './business-services.css';
+@import './service.css';
+@import './contact.css';
+@import './about.css';
 
 html {
     font-family: 'Inter', sans-serif;

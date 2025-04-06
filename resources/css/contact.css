@@ -1,0 +1,155 @@
+.contact-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  margin-bottom: 70px;
+}
+
+.contact-intro {
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.contact-intro.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-main-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.contact-main-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333;
+  max-width: 90%;
+}
+
+.contact-image-section {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  margin-top: 30px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+  transition-delay: 0.3s;
+}
+
+.contact-image-section.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+}
+
+.contact-info-box {
+  position: absolute;
+  bottom: -80px;
+  right: 0;
+  width: 550px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+  transition-delay: 0.6s;
+}
+
+.contact-info-box.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-box-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0066cc;
+  margin-bottom: 15px;
+}
+
+.info-box-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.contact-details {
+  margin-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+}
+
+.contact-detail {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.contact-detail:last-child {
+  margin-bottom: 0;
+}
+
+.contact-detail strong {
+  color: #1a1a1a;
+  margin-right: 8px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 20px;
+  }
+
+  .contact-main-title {
+    font-size: 2.2rem;
+  }
+
+  .contact-main-description {
+    font-size: 1.1rem;
+    max-width: 100%;
+  }
+
+  .contact-image-section {
+    height: auto;
+    min-height: 400px;
+    margin-bottom: 80px;
+  }
+
+  .contact-info-box {
+    position: relative;
+    bottom: -40px;
+    right: auto;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .info-box-title {
+    font-size: 1.5rem;
+  }
+
+  .info-box-description {
+    font-size: 0.95rem;
+  }
+
+  .contact-detail {
+    font-size: 0.9rem;
+  }
+}
