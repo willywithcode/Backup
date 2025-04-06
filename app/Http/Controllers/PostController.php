@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Services\StorageService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,10 +38,7 @@ class PostController extends Controller
             $filePath = null;
 
             if ($request->hasFile('thumbnail')) {
-                $file = $request->file('thumbnail');
-                $filename = time() . '_' . str_replace(' ', '', $file->getClientOriginalName());
-                $file->move(public_path('upload'), $filename);
-                $filePath = 'upload/' . $filename;
+                $filePath = StorageService::upload($request->file('thumbnail'));
             }
 
             $post = Post::create([
@@ -88,10 +86,7 @@ class PostController extends Controller
             $filePath = $post->thumbnail;
 
             if ($request->hasFile('thumbnail')) {
-                $file = $request->file('thumbnail');
-                $filename = time() . '_' . str_replace(' ', '', $file->getClientOriginalName());
-                $file->move(public_path('upload'), $filename);
-                $filePath = 'upload/' . $filename;
+                $filePath = StorageService::upload($request->file('thumbnail'));
             }
 
             $post->update([
