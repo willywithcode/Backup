@@ -512,7 +512,7 @@
                     </div>
 
                     <div class="form-row">
-                        <button type="submit" class="submit-btn bg-[#3498db] hover:bg-blue-700 transition px-6 py-3 rounded-lg text-white font-semibold">GỬI YÊU CẦU</button>
+                        <button type="submit" class="submit-btn bg-[#2990D0] hover:bg-blue-700 transition px-6 py-3 rounded-lg text-white font-semibold">GỬI YÊU CẦU</button>
                     </div>
                 </form>
             </div>
