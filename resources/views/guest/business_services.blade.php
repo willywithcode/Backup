@@ -1,7 +1,6 @@
 @extends('layouts.guest')
 
 @section('styles')
-    <link href="{{ asset('resources/css/business-services.css') }}" rel="stylesheet">
     <style>
         .logo-background {
             position: absolute;
