@@ -267,9 +267,9 @@
                 <div class="service-details">
                     <h3 class="text-3xl font-bold">{{ $service->title }}</h3>
                     
-                    @if (!empty($service->excerpt))
+                    <!-- @if (!empty($service->excerpt))
                         <p>{{ $service->excerpt }}</p>
-                    @endif
+                    @endif -->
                     
                     @if ($service->content)
                         <ul>

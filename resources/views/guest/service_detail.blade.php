@@ -497,12 +497,12 @@
                         </div>
                     </div>
 
-                    <button class="slider-nav-btn slider-prev absolute left-0 top-1/2 transform -translate-y-1/2"
+                    <!-- <button class="slider-nav-btn slider-prev absolute left-0 top-1/2 transform -translate-y-1/2"
                         style="display: none;">
                     </button>
                     <button class="slider-nav-btn slider-next absolute right-0 top-1/2 transform -translate-y-1/2"
                         style="display: none;">
-                    </button>
+                    </button> -->
                 </div>
 
                 <div class="pagination-dots flex justify-center mt-6">
