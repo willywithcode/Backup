@@ -787,7 +787,7 @@
                     <h2 class="section-title text-2xl md:text-3xl font-bold text-[#1C1F35]">Dịch vụ của chúng tôi</h2>
                     <a href="#"
                         class="quote-btn text-white px-8 py-3 rounded flex items-center whitespace-nowrap w-44 justify-center"
-                        style="background: linear-gradient(to right, #2990D0, #15496A);z-index:1000;">
+                        style="background: linear-gradient(to right, #2990D0, #15496A);z-index:9;">
                         <img src="{{ asset('assets/home/Vector.png') }}" alt="Quote Icon" class="w-5 h-4 mr-2">
                         Nhận báo giá
                     </a>
