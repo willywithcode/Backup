@@ -29,7 +29,7 @@ class UpdatePostRequest extends FormRequest
             'order' => 'required|integer|min:0',
             'excerpt' => 'required|string|max:1000',
             'content' => 'required|string',
-            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10204',
             'category_ids' => 'required|array',
             'category_ids.*' => 'exists:categories,id',
         ];
