@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Behind Office</title>
-    <link href="{{ asset('resources/css/app.css') }}" rel="stylesheet">
+    <link rel="preload" href="{{ asset('resources/css/app.css') }}" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}">
+    </noscript>
     @yield('styles')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
