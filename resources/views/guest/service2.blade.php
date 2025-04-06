@@ -86,7 +86,19 @@
             margin-bottom: 40px;
         }
         
-        .intro-content, .intro-image {
+        .intro-content {
+            width: 100% !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .intro-content .section-title,
+        .intro-content .intro-description {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+        
+        .intro-image {
             width: 100% !important;
         }
         

@@ -28,7 +28,6 @@
 
         .our-services {
             position: relative;
-            z-index: 5 !important;
         }
 
         /* Hexagon styles */
@@ -283,6 +282,7 @@
         .testimonial-card {
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             border-radius: 12px;
+            z-index: 10 !important;
         }
 
         .why-choose-us-image-container::after {
@@ -312,6 +312,89 @@
 
         .why-choose-us::before {
             display: none;
+        }
+
+        /* Testimonial slider styles */
+        .testimonials-slider {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-wrapper {
+            width: 100%;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+            cursor: grab;
+        }
+
+        .testimonials-track:active {
+            cursor: grabbing;
+        }
+
+        .testimonial-slide {
+            padding: 0 8px;
+            box-sizing: border-box;
+            flex: 0 0 33.333%;
+            min-width: 33.333%;
+            pointer-events: none;
+        }
+
+        .testimonial-slide .testimonial-card {
+            pointer-events: auto;
+        }
+
+        @media (max-width: 767px) {
+            .testimonial-slide {
+                flex: 0 0 100%;
+                min-width: 100%;
+            }
+        }
+
+        .testimonial-nav-btn {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+        }
+
+        .testimonial-nav-btn:hover {
+            background-color: #f8f9fa;
+        }
+
+        .testimonial-pagination-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .testimonial-pagination-dots .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-pagination-dots .dot.active {
+            width: 30px;
+            border-radius: 10px;
         }
 
         @media (max-width: 768px) {
@@ -498,12 +581,26 @@
 
             /* Testimonials spacing and centering in mobile */
             .testimonial-card {
-                margin-bottom: 40px !important;
+                margin-bottom: 1rem !important;
                 text-align: center !important;
             }
 
             .testimonial-author {
                 align-items: center !important;
+            }
+
+            .testimonial-slide {
+                padding: 0 !important;
+                margin-bottom: 0 !important;
+            }
+
+            .testimonial-pagination-dots .dot {
+                width: 8px;
+                height: 8px;
+            }
+
+            .testimonial-pagination-dots .dot.active {
+                width: 20px;
             }
 
             /* Why Choose Us section centering */
@@ -659,6 +756,8 @@
 @endsection
 
 @section('content')
+<img src="{{ asset('assets/logo-logo1.png') }}" alt="Logo Background" style="width: 30%; position: fixed; right: 0; bottom: 0; z-index: 1;">
+ 
     <div class="business-service-hero" style = "z-index: 10">
         <div class="container mx-auto px-40 py-20 relative">
             <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
@@ -696,11 +795,11 @@
                 </div>
 
                 <!-- Horizontal scrollable services -->
-                <div class="services-container relative">
+                <div class="services-container relative" style = "z-index: 10">
                     <div class="services-slider overflow-x-auto">
                         <div class="services-track flex space-x-6" style="min-width: max-content;">
                             @foreach ($services as $service)
-                                <div class="service-card" data-aos="fade-up" data-aos-delay="{{ 100 * $loop->iteration }}">
+                                <div class="service-card" data-aos="fade-up" data-aos-delay="{{ 100 * $loop->iteration }}" style = "z-index: 10">
                                     <div class="service-card-frame">
                                         <div class="service-image-wrapper">
                                             <img src="{{ asset($service->thumbnail ?? 'assets/default-service.png') }}"
@@ -755,7 +854,7 @@
             <div class="about-us pt-16 pb-12 md:pb-24 bg-white relative overflow-hidden">
                 <div class="container mx-auto">
                     <div class="about-content grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-24">
-                        <div class="about-image relative" data-aos="fade-right" data-aos-duration="1000">
+                        <div class="about-image relative" data-aos="fade-right" data-aos-duration="1000" style = "z-index: 10">
                             <img src="{{ asset('assets/home/woman-with-headset-having-video-call-laptop 1.png') }}"
                                 alt="Behind Office Team" class="w-full h-auto rounded-lg shadow-lg">
                             <!-- Project count box positioned below the image and extending beyond right edge -->
@@ -962,127 +1061,216 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="testimonial-card bg-white shadow-md rounded-lg p-8 border border-gray-100" data-aos="fade-up"
-                data-aos-delay="100" data-aos-duration="1000">
-                <div class="testimonial-content mb-6">
-                    <p class="text-gray-700 italic">
-                        "Behind Office mang đến dịch vụ chuyên nghiệp, giúp công việc hậu cần văn phòng của chúng tôi
-                        vận hành suôn sẻ hơn. Nhờ họ, tôi có thể tập trung vào chiến lược kinh doanh mà không lo gián
-                        đoạn."
-                    </p>
-                </div>
-                <div class="testimonial-author flex flex-col items-center">
-                    <div class="author-avatar mb-3">
-                        <img src="{{ asset('assets/home/avatar1.png') }}" alt="Anna Lee"
-                            class="w-16 h-16 rounded-full">
-                    </div>
-                    <div class="author-info text-center">
-                        <h4 class="author-name font-bold text-[#1C1F35] uppercase">ANNA LEE</h4>
-                        <p class="author-position text-sm text-gray-500 uppercase">FAIRY CAKE</p>
-                        <div class="rating flex justify-center mt-2">
-                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+            <div class="testimonials-slider relative">
+                <div class="testimonials-wrapper overflow-hidden">
+                    <div class="testimonials-track flex transition-transform duration-300" id="testimonials-track" style = "z-index: 10; position: relative;">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-slide min-w-full md:min-w-[33.333%]">
+                            <div class="testimonial-card bg-white shadow-md rounded-lg p-8 border border-gray-100 mx-2" data-aos="fade-up"
+                                data-aos-delay="100" data-aos-duration="1000">
+                                <div class="testimonial-content mb-6">
+                                    <p class="text-gray-700 italic">
+                                        "Behind Office mang đến dịch vụ chuyên nghiệp, giúp công việc hậu cần văn phòng của chúng tôi
+                                        vận hành suôn sẻ hơn. Nhờ họ, tôi có thể tập trung vào chiến lược kinh doanh mà không lo gián
+                                        đoạn."
+                                    </p>
+                                </div>
+                                <div class="testimonial-author flex flex-col items-center">
+                                    <div class="author-avatar mb-3">
+                                        <img src="{{ asset('assets/home/avatar1.png') }}" alt="Anna Lee"
+                                            class="w-16 h-16 rounded-full">
+                                    </div>
+                                    <div class="author-info text-center">
+                                        <h4 class="author-name font-bold text-[#1C1F35] uppercase">ANNA LEE</h4>
+                                        <p class="author-position text-sm text-gray-500 uppercase">FAIRY CAKE</p>
+                                        <div class="rating flex justify-center mt-2">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card bg-white shadow-md rounded-lg p-8 border border-gray-100" data-aos="fade-up"
-                    data-aos-delay="100" data-aos-duration="1000">
-                    <div class="testimonial-content mb-6">
-                        <p class="text-gray-700 italic">
-                            "Behind Office mang đến dịch vụ chuyên nghiệp, giúp công việc hậu cần văn phòng của chúng tôi
-                            vận hành suôn sẻ hơn. Nhờ họ, tôi có thể tập trung vào chiến lược kinh doanh mà không lo gián
-                            đoạn."
-                        </p>
-                    </div>
-                    <div class="testimonial-author flex flex-col items-center">
-                        <div class="author-avatar mb-3">
-                            <img src="{{ asset('assets/home/avatar1.png') }}" alt="Anna Lee"
-                                class="w-16 h-16 rounded-full">
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-slide min-w-full md:min-w-[33.333%]">
+                            <div class="testimonial-card bg-white shadow-md rounded-lg p-8 border border-gray-100 mx-2" data-aos="fade-up"
+                                data-aos-delay="200" data-aos-duration="1000">
+                                <div class="testimonial-content mb-6">
+                                    <p class="text-gray-700 italic">
+                                        "Đội ngũ Behind Office hỗ trợ tận tâm, phản hồi nhanh chóng và xử lý vấn đề hiệu quả. Nhờ họ,
+                                        công ty tôi tiết kiệm được nhiều thời gian, giúp công việc vận hành trơn tru mà không bị gián
+                                        đoạn."
+                                    </p>
+                                </div>
+                                <div class="testimonial-author flex flex-col items-center">
+                                    <div class="author-avatar mb-3">
+                                        <img src="{{ asset('assets/home/avatar2.png') }}" alt="Minh Tiến"
+                                            class="w-16 h-16 rounded-full">
+                                    </div>
+                                    <div class="author-info text-center">
+                                        <h4 class="author-name font-bold text-[#1C1F35] uppercase">Minh Tiến</h4>
+                                        <p class="author-position text-sm text-gray-500 uppercase">NINA LIVE CO.,LTD</p>
+                                        <div class="rating flex justify-center mt-2">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="author-info text-center">
-                            <h4 class="author-name font-bold text-[#1C1F35] uppercase">ANNA LEE</h4>
-                            <p class="author-position text-sm text-gray-500 uppercase">FAIRY CAKE</p>
-                            <div class="rating flex justify-center mt-2">
-                                <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                                <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                                <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                                <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                                <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-slide min-w-full md:min-w-[33.333%]">
+                            <div class="testimonial-card bg-white shadow-md rounded-lg p-8 border border-gray-100 mx-2" data-aos="fade-up"
+                                data-aos-delay="300" data-aos-duration="1000">
+                                <div class="testimonial-content mb-6">
+                                    <p class="text-gray-700 italic">
+                                        "Behind Office cung cấp giải pháp linh hoạt, phù hợp với nhu cầu doanh nghiệp. Nhờ dịch vụ
+                                        chuyên nghiệp của họ, chúng tôi tối ưu được chi phí vận hành và tập trung hơn vào hoạt động kinh
+                                        doanh."
+                                    </p>
+                                </div>
+                                <div class="testimonial-author flex flex-col items-center">
+                                    <div class="author-avatar mb-3">
+                                        <img src="{{ asset('assets/home/avatar3.png') }}" alt="Duy Khang"
+                                            class="w-16 h-16 rounded-full">
+                                    </div>
+                                    <div class="author-info text-center">
+                                        <h4 class="author-name font-bold text-[#1C1F35] uppercase">Duy Khang</h4>
+                                        <p class="author-position text-sm text-gray-500 uppercase">JAME BUILDING</p>
+                                        <div class="rating flex justify-center mt-2">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 4 -->
+                        <div class="testimonial-slide min-w-full md:min-w-[33.333%]">
+                            <div class="testimonial-card bg-white shadow-md rounded-lg p-8 border border-gray-100 mx-2" data-aos="fade-up"
+                                data-aos-delay="100" data-aos-duration="1000">
+                                <div class="testimonial-content mb-6">
+                                    <p class="text-gray-700 italic">
+                                        "Tôi rất hài lòng với sự chuyên nghiệp và nhiệt tình của Behind Office. Họ đã giúp công ty tôi 
+                                        xử lý mọi thủ tục hành chính một cách nhanh chóng và chính xác."
+                                    </p>
+                                </div>
+                                <div class="testimonial-author flex flex-col items-center">
+                                    <div class="author-avatar mb-3">
+                                        <img src="{{ asset('assets/home/avatar1.png') }}" alt="Thanh Hương"
+                                            class="w-16 h-16 rounded-full">
+                                    </div>
+                                    <div class="author-info text-center">
+                                        <h4 class="author-name font-bold text-[#1C1F35] uppercase">Thanh Hương</h4>
+                                        <p class="author-position text-sm text-gray-500 uppercase">GREEN TECH</p>
+                                        <div class="rating flex justify-center mt-2">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 5 -->
+                        <div class="testimonial-slide min-w-full md:min-w-[33.333%]">
+                            <div class="testimonial-card bg-white shadow-md rounded-lg p-8 border border-gray-100 mx-2" data-aos="fade-up"
+                                data-aos-delay="200" data-aos-duration="1000">
+                                <div class="testimonial-content mb-6">
+                                    <p class="text-gray-700 italic">
+                                        "Behind Office đã giúp tôi tiết kiệm rất nhiều thời gian và công sức trong việc xử lý các 
+                                        thủ tục pháp lý phức tạp. Đội ngũ nhân viên rất chuyên nghiệp và am hiểu."
+                                    </p>
+                                </div>
+                                <div class="testimonial-author flex flex-col items-center">
+                                    <div class="author-avatar mb-3">
+                                        <img src="{{ asset('assets/home/avatar2.png') }}" alt="Hoàng Nam"
+                                            class="w-16 h-16 rounded-full">
+                                    </div>
+                                    <div class="author-info text-center">
+                                        <h4 class="author-name font-bold text-[#1C1F35] uppercase">Hoàng Nam</h4>
+                                        <p class="author-position text-sm text-gray-500 uppercase">SKY MEDIA</p>
+                                        <div class="rating flex justify-center mt-2">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 6 -->
+                        <div class="testimonial-slide min-w-full md:min-w-[33.333%]">
+                            <div class="testimonial-card bg-white shadow-md rounded-lg p-8 border border-gray-100 mx-2" data-aos="fade-up"
+                                data-aos-delay="300" data-aos-duration="1000">
+                                <div class="testimonial-content mb-6">
+                                    <p class="text-gray-700 italic">
+                                        "Dịch vụ của Behind Office thực sự ấn tượng. Họ đã giúp tôi xử lý mọi công việc hành chính 
+                                        một cách hiệu quả, để tôi có thể tập trung vào phát triển kinh doanh của mình."
+                                    </p>
+                                </div>
+                                <div class="testimonial-author flex flex-col items-center">
+                                    <div class="author-avatar mb-3">
+                                        <img src="{{ asset('assets/home/avatar3.png') }}" alt="Minh Anh"
+                                            class="w-16 h-16 rounded-full">
+                                    </div>
+                                    <div class="author-info text-center">
+                                        <h4 class="author-name font-bold text-[#1C1F35] uppercase">Minh Anh</h4>
+                                        <p class="author-position text-sm text-gray-500 uppercase">BLUE OCEAN</p>
+                                        <div class="rating flex justify-center mt-2">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                            <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card bg-white shadow-md rounded-lg p-8 border border-gray-100" data-aos="fade-up"
-                    data-aos-delay="200" data-aos-duration="1000">
-                    <div class="testimonial-content mb-6">
-                        <p class="text-gray-700 italic">
-                            "Đội ngũ Behind Office hỗ trợ tận tâm, phản hồi nhanh chóng và xử lý vấn đề hiệu quả. Nhờ họ,
-                            công ty tôi tiết kiệm được nhiều thời gian, giúp công việc vận hành trơn tru mà không bị gián
-                            đoạn."
-                        </p>
-                    </div>
-                    <div class="testimonial-author flex flex-col items-center">
-                        <div class="author-avatar mb-3">
-                            <img src="{{ asset('assets/home/avatar2.png') }}" alt="Minh Tiến"
-                                class="w-16 h-16 rounded-full">
-                        </div>
-                        <div class="author-info text-center">
-                            <h4 class="author-name font-bold text-[#1C1F35] uppercase">Minh Tiến</h4>
-                            <p class="author-position text-sm text-gray-500 uppercase">NINA LIVE CO.,LTD</p>
-                            <div class="rating flex justify-center mt-2">
-                                <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                                <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                                <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                                <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                                <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card bg-white shadow-md rounded-lg p-8 border border-gray-100" data-aos="fade-up"
-                    data-aos-delay="300" data-aos-duration="1000">
-                    <div class="testimonial-content mb-6">
-                        <p class="text-gray-700 italic">
-                            "Behind Office cung cấp giải pháp linh hoạt, phù hợp với nhu cầu doanh nghiệp. Nhờ dịch vụ
-                            chuyên nghiệp của họ, chúng tôi tối ưu được chi phí vận hành và tập trung hơn vào hoạt động kinh
-                            doanh."
-                        </p>
-                    </div>
-                    <div class="testimonial-author flex flex-col items-center">
-                        <div class="author-avatar mb-3">
-                            <img src="{{ asset('assets/home/avatar3.png') }}" alt="Duy Khang"
-                                class="w-16 h-16 rounded-full">
-                        </div>
-                        <div class="author-info text-center">
-                            <h4 class="author-name font-bold text-[#1C1F35] uppercase">Duy Khang</h4>
-                            <p class="author-position text-sm text-gray-500 uppercase">JAME BUILDING</p>
-                            <div class="rating flex justify-center mt-2">
-                                <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                                <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                                <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                                <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                                <img src="{{ asset('assets/home/star.png') }}" alt="star" class="w-4 h-4">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Navigation arrows -->
+                <button
+                    class="testimonial-nav-btn testimonial-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10 flex items-center justify-center hidden md:flex">
+                    <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                        </path>
+                    </svg>
+                </button>
+                <button
+                    class="testimonial-nav-btn testimonial-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10 flex items-center justify-center hidden md:flex">
+                    <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                        </path>
+                    </svg>
+                </button>
             </div>
 
             <!-- Pagination dots -->
-            <div class="pagination-dots flex justify-center mt-10">
-                <span class="dot active bg-blue-500"></span>
-                <span class="dot bg-gray-300"></span>
-                <span class="dot bg-gray-300"></span>
+            <div class="testimonial-pagination-dots flex justify-center mt-10">
+                <!-- Will be populated by JavaScript -->
             </div>
         </div>
         <!-- Behind Office Popup -->
@@ -1282,6 +1470,211 @@
                 updateSliderPosition();
             }
 
+            // Initialize
+            updateSliderPosition();
+        });
+    </script>
+
+    <!-- Testimonial Slider JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Testimonial slider elements
+            const testimonialsTrack = document.getElementById('testimonials-track');
+            const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+            const paginationContainer = document.querySelector('.testimonial-pagination-dots');
+            const prevBtn = document.querySelector('.testimonial-prev');
+            const nextBtn = document.querySelector('.testimonial-next');
+            
+            // Define constants
+            const isMobile = window.innerWidth < 768;
+            const slidesPerGroup = isMobile ? 1 : 3; // 1 testimonial per dot on mobile, 3 on desktop
+            const slidesPerView = isMobile ? 1 : 3;
+            
+            // Calculate number of groups (dynamic based on device)
+            const totalGroups = Math.ceil(testimonialSlides.length / slidesPerGroup);
+            
+            let currentGroup = 0;
+            
+            // For drag functionality
+            let isDragging = false;
+            let startPosition = 0;
+            let currentTranslate = 0;
+            let prevTranslate = 0;
+            let animationID = 0;
+            let currentIndex = 0;
+            
+            // Clear existing dots and create pagination dots
+            paginationContainer.innerHTML = '';
+            for (let i = 0; i < totalGroups; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active', 'bg-blue-500');
+                else dot.classList.add('bg-gray-300');
+                dot.dataset.index = i;
+                paginationContainer.appendChild(dot);
+                
+                // Add click event to each dot
+                dot.addEventListener('click', () => {
+                    goToGroup(i);
+                });
+            }
+            
+            // Update slide positions
+            function updateSliderPosition() {
+                const translateValue = -(currentGroup * slidesPerGroup * 100) / slidesPerView;
+                testimonialsTrack.style.transform = `translateX(${translateValue}%)`;
+                
+                // Update active dot
+                document.querySelectorAll('.testimonial-pagination-dots .dot').forEach((dot, index) => {
+                    if (index === currentGroup) {
+                        dot.classList.add('active', 'bg-blue-500');
+                        dot.classList.remove('bg-gray-300');
+                    } else {
+                        dot.classList.remove('active', 'bg-blue-500');
+                        dot.classList.add('bg-gray-300');
+                    }
+                });
+                
+                // Show/hide navigation buttons
+                if (prevBtn && nextBtn) {
+                    prevBtn.style.display = currentGroup > 0 ? 'flex' : 'none';
+                    nextBtn.style.display = currentGroup < totalGroups - 1 ? 'flex' : 'none';
+                }
+            }
+            
+            // Go to a specific group
+            function goToGroup(groupIndex) {
+                if (groupIndex >= 0 && groupIndex < totalGroups) {
+                    currentGroup = groupIndex;
+                    updateSliderPosition();
+                }
+            }
+            
+            // Handle navigation button clicks
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    if (currentGroup > 0) {
+                        currentGroup--;
+                        updateSliderPosition();
+                    }
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    if (currentGroup < totalGroups - 1) {
+                        currentGroup++;
+                        updateSliderPosition();
+                    }
+                });
+            }
+            
+            // Drag functionality
+            function getPositionX(event) {
+                return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+            }
+            
+            function setPositionByIndex() {
+                currentTranslate = currentIndex * -testimonialSlides[0].offsetWidth;
+                prevTranslate = currentTranslate;
+                setSliderPosition();
+            }
+            
+            function setSliderPosition() {
+                // Convert pixel translation to percentage for consistency
+                const slideWidth = testimonialSlides[0].offsetWidth;
+                const trackWidth = testimonialsTrack.offsetWidth;
+                const translatePercent = (currentTranslate / trackWidth) * 100;
+                
+                testimonialsTrack.style.transform = `translateX(${translatePercent}%)`;
+            }
+            
+            function animation() {
+                setSliderPosition();
+                if (isDragging) requestAnimationFrame(animation);
+            }
+            
+            // Touch events for swiping
+            testimonialsTrack.addEventListener('touchstart', touchStart);
+            testimonialsTrack.addEventListener('touchmove', touchMove);
+            testimonialsTrack.addEventListener('touchend', touchEnd);
+            
+            // Mouse events for dragging
+            testimonialsTrack.addEventListener('mousedown', touchStart);
+            testimonialsTrack.addEventListener('mousemove', touchMove);
+            testimonialsTrack.addEventListener('mouseup', touchEnd);
+            testimonialsTrack.addEventListener('mouseleave', touchEnd);
+            
+            function touchStart(event) {
+                if (event.type === 'mousedown') {
+                    event.preventDefault(); // Prevent text selection during drag
+                }
+                
+                startPosition = getPositionX(event);
+                isDragging = true;
+                
+                // Stop any ongoing slide animation
+                cancelAnimationFrame(animationID);
+                
+                // Start drag animation
+                animationID = requestAnimationFrame(animation);
+                
+                // Add grabbing cursor
+                testimonialsTrack.style.cursor = 'grabbing';
+            }
+            
+            function touchMove(event) {
+                if (isDragging) {
+                    const currentPosition = getPositionX(event);
+                    const moveDistance = currentPosition - startPosition;
+                    
+                    // Update current translate based on drag distance
+                    currentTranslate = prevTranslate + moveDistance;
+                }
+            }
+            
+            function touchEnd() {
+                isDragging = false;
+                cancelAnimationFrame(animationID);
+                
+                // Calculate how much the slider was moved
+                const movedDistance = currentTranslate - prevTranslate;
+                
+                // Determine if we should go to next/prev slide or stay at current
+                if (movedDistance < -50 && currentGroup < totalGroups - 1) {
+                    currentGroup++;
+                } else if (movedDistance > 50 && currentGroup > 0) {
+                    currentGroup--;
+                }
+                
+                // Update slider position to snap to the correct group
+                updateSliderPosition();
+                
+                // Reset cursor style
+                testimonialsTrack.style.cursor = 'grab';
+            }
+            
+            // Add grabbing cursor to the track
+            testimonialsTrack.style.cursor = 'grab';
+            
+            // Prevent context menu on right click
+            testimonialsTrack.addEventListener('contextmenu', e => {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                const wasIsMobile = isMobile;
+                const newIsMobile = window.innerWidth < 768;
+                
+                // Only update if the layout mode changed
+                if (wasIsMobile !== newIsMobile) {
+                    location.reload(); // Simple solution: reload to recalculate everything
+                }
+            });
+            
             // Initialize
             updateSliderPosition();
         });
