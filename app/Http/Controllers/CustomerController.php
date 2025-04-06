@@ -40,7 +40,7 @@ class CustomerController extends Controller
     {
         Customer::create($request->all());
 
-        alert()->success('Thành công')->showConfirmButton('Xác nhận', '#C1262E')->autoClose(5000);
+        alert()->success('Thành công')->showConfirmButton('Xác nhận', '#27A9E1')->autoClose(5000);
 
         return redirect()->back();
     }

@@ -737,7 +737,7 @@
         }
 
         .behindoffice-popup__submit {
-            width: 20%;
+            width: 30%;
             background-color: #3498db;
             color: white;
             border: none;
@@ -757,7 +757,7 @@
 
 @section('content')
 <img src="{{ asset('assets/logo-logo1.png') }}" alt="Logo Background" style="width: 30%; position: fixed; right: 0; bottom: 0; z-index: 1;">
- 
+
     <div class="business-service-hero" style = "z-index: 10">
         <div class="container mx-auto px-40 py-20 relative">
             <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
@@ -788,7 +788,7 @@
                     <h2 class="section-title text-2xl md:text-3xl font-bold text-[#1C1F35]">Dịch vụ của chúng tôi</h2>
                     <a href="#"
                         class="quote-btn text-white px-8 py-3 rounded flex items-center whitespace-nowrap w-44 justify-center"
-                        style="background: linear-gradient(to right, #2990D0, #15496A)">
+                        style="background: linear-gradient(to right, #2990D0, #15496A);z-index:1000;">
                         <img src="{{ asset('assets/home/Vector.png') }}" alt="Quote Icon" class="w-5 h-4 mr-2">
                         Nhận báo giá
                     </a>
@@ -1012,28 +1012,29 @@
 
                 <!-- Right Form -->
                 <div class="consultation-form-container" data-aos="fade-left" data-aos-duration="1000">
-                    <form class="consultation-form-fields">
+                    <form action="{{ route('customers.store') }}" method="POST" class="consultation-form-fields">
+                        @csrf
                         <div class="form-row grid grid-cols-2 gap-4 mb-4">
                             <div class="form-group">
-                                <input type="text" placeholder="Họ và tên" class="form-control">
+                                <input name="name" required type="text" placeholder="Họ và tên" class="form-control">
                             </div>
                             <div class="form-group">
-                                <input type="email" placeholder="Email" class="form-control">
+                                <input name="email" required type="email" placeholder="Email" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-row grid grid-cols-2 gap-4 mb-4">
                             <div class="form-group">
-                                <input type="tel" placeholder="Số điện thoại" class="form-control">
+                                <input name="phone" required type="tel" placeholder="Số điện thoại" class="form-control">
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Tỉnh thành" class="form-control">
+                                <input name="province" type="text" placeholder="Tỉnh thành" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-row mb-4">
                             <div class="form-group">
-                                <textarea rows="4" placeholder="Lời nhắn..." class="form-control"></textarea>
+                                <textarea name="content" rows="4" placeholder="Lời nhắn..." class="form-control"></textarea>
                             </div>
                         </div>
 
@@ -1163,7 +1164,7 @@
                                 data-aos-delay="100" data-aos-duration="1000">
                                 <div class="testimonial-content mb-6">
                                     <p class="text-gray-700 italic">
-                                        "Tôi rất hài lòng với sự chuyên nghiệp và nhiệt tình của Behind Office. Họ đã giúp công ty tôi 
+                                        "Tôi rất hài lòng với sự chuyên nghiệp và nhiệt tình của Behind Office. Họ đã giúp công ty tôi
                                         xử lý mọi thủ tục hành chính một cách nhanh chóng và chính xác."
                                     </p>
                                 </div>
@@ -1193,7 +1194,7 @@
                                 data-aos-delay="200" data-aos-duration="1000">
                                 <div class="testimonial-content mb-6">
                                     <p class="text-gray-700 italic">
-                                        "Behind Office đã giúp tôi tiết kiệm rất nhiều thời gian và công sức trong việc xử lý các 
+                                        "Behind Office đã giúp tôi tiết kiệm rất nhiều thời gian và công sức trong việc xử lý các
                                         thủ tục pháp lý phức tạp. Đội ngũ nhân viên rất chuyên nghiệp và am hiểu."
                                     </p>
                                 </div>
@@ -1223,7 +1224,7 @@
                                 data-aos-delay="300" data-aos-duration="1000">
                                 <div class="testimonial-content mb-6">
                                     <p class="text-gray-700 italic">
-                                        "Dịch vụ của Behind Office thực sự ấn tượng. Họ đã giúp tôi xử lý mọi công việc hành chính 
+                                        "Dịch vụ của Behind Office thực sự ấn tượng. Họ đã giúp tôi xử lý mọi công việc hành chính
                                         một cách hiệu quả, để tôi có thể tập trung vào phát triển kinh doanh của mình."
                                     </p>
                                 </div>
@@ -1297,11 +1298,12 @@
 
                 <p class="text-gray-600 text-sm mb-6">Vui lòng điền thông tin chi tiết chúng tôi sẽ liên hệ tư vấn!</p>
 
-                <form>
-                    <input type="text" placeholder="Họ tên" class="behindoffice-popup__input mb-4">
-                    <input type="tel" placeholder="Số điện thoại" class="behindoffice-popup__input mb-4">
-                    <textarea placeholder="Nội dung cần tư vấn" rows="3" class="behindoffice-popup__input mb-6"></textarea>
-                    <button type="submit" class="behindoffice-popup__submit">Gửi</button>
+                <form action="{{ route('customers.store') }}" method="POST">
+                    @csrf
+                    <input required type="text" name="name" placeholder="Họ tên" class="behindoffice-popup__input mb-4">
+                    <input required type="tel" name="phone" placeholder="Số điện thoại" class="behindoffice-popup__input mb-4">
+                    <textarea required name="content" placeholder="Nội dung cần tư vấn" rows="3" class="behindoffice-popup__input mb-6"></textarea>
+                    <button type="submit" class="behindoffice-popup__submit" style="padding-left:20px;padding-right:20px;">Gửi</button>
                 </form>
             </div>
         </div>
@@ -1316,7 +1318,6 @@
             const popup = document.getElementById("behindoffice-popup");
             const closeBtn = document.getElementById("behindoffice-popup-close");
             const quoteBtn = document.querySelector('.quote-btn');
-            const submitBtn = document.querySelector('.behindoffice-popup__submit');
 
             // Show popup when "Nhận báo giá" button is clicked
             quoteBtn.addEventListener("click", function(e) {
@@ -1327,13 +1328,6 @@
             // Hide popup when close button is clicked
             closeBtn.addEventListener("click", () => {
                 popup.classList.add("hidden");
-            });
-
-            // Hide popup when form is submitted
-            submitBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                popup.classList.add("hidden");
-                // Form submission logic can be added here
             });
 
             // Hide popup when clicking outside the modal
@@ -1484,17 +1478,17 @@
             const paginationContainer = document.querySelector('.testimonial-pagination-dots');
             const prevBtn = document.querySelector('.testimonial-prev');
             const nextBtn = document.querySelector('.testimonial-next');
-            
+
             // Define constants
             const isMobile = window.innerWidth < 768;
             const slidesPerGroup = isMobile ? 1 : 3; // 1 testimonial per dot on mobile, 3 on desktop
             const slidesPerView = isMobile ? 1 : 3;
-            
+
             // Calculate number of groups (dynamic based on device)
             const totalGroups = Math.ceil(testimonialSlides.length / slidesPerGroup);
-            
+
             let currentGroup = 0;
-            
+
             // For drag functionality
             let isDragging = false;
             let startPosition = 0;
@@ -1502,7 +1496,7 @@
             let prevTranslate = 0;
             let animationID = 0;
             let currentIndex = 0;
-            
+
             // Clear existing dots and create pagination dots
             paginationContainer.innerHTML = '';
             for (let i = 0; i < totalGroups; i++) {
@@ -1512,18 +1506,18 @@
                 else dot.classList.add('bg-gray-300');
                 dot.dataset.index = i;
                 paginationContainer.appendChild(dot);
-                
+
                 // Add click event to each dot
                 dot.addEventListener('click', () => {
                     goToGroup(i);
                 });
             }
-            
+
             // Update slide positions
             function updateSliderPosition() {
                 const translateValue = -(currentGroup * slidesPerGroup * 100) / slidesPerView;
                 testimonialsTrack.style.transform = `translateX(${translateValue}%)`;
-                
+
                 // Update active dot
                 document.querySelectorAll('.testimonial-pagination-dots .dot').forEach((dot, index) => {
                     if (index === currentGroup) {
@@ -1534,14 +1528,14 @@
                         dot.classList.add('bg-gray-300');
                     }
                 });
-                
+
                 // Show/hide navigation buttons
                 if (prevBtn && nextBtn) {
                     prevBtn.style.display = currentGroup > 0 ? 'flex' : 'none';
                     nextBtn.style.display = currentGroup < totalGroups - 1 ? 'flex' : 'none';
                 }
             }
-            
+
             // Go to a specific group
             function goToGroup(groupIndex) {
                 if (groupIndex >= 0 && groupIndex < totalGroups) {
@@ -1549,7 +1543,7 @@
                     updateSliderPosition();
                 }
             }
-            
+
             // Handle navigation button clicks
             if (prevBtn) {
                 prevBtn.addEventListener('click', () => {
@@ -1559,7 +1553,7 @@
                     }
                 });
             }
-            
+
             if (nextBtn) {
                 nextBtn.addEventListener('click', () => {
                     if (currentGroup < totalGroups - 1) {
@@ -1568,113 +1562,113 @@
                     }
                 });
             }
-            
+
             // Drag functionality
             function getPositionX(event) {
                 return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
             }
-            
+
             function setPositionByIndex() {
                 currentTranslate = currentIndex * -testimonialSlides[0].offsetWidth;
                 prevTranslate = currentTranslate;
                 setSliderPosition();
             }
-            
+
             function setSliderPosition() {
                 // Convert pixel translation to percentage for consistency
                 const slideWidth = testimonialSlides[0].offsetWidth;
                 const trackWidth = testimonialsTrack.offsetWidth;
                 const translatePercent = (currentTranslate / trackWidth) * 100;
-                
+
                 testimonialsTrack.style.transform = `translateX(${translatePercent}%)`;
             }
-            
+
             function animation() {
                 setSliderPosition();
                 if (isDragging) requestAnimationFrame(animation);
             }
-            
+
             // Touch events for swiping
             testimonialsTrack.addEventListener('touchstart', touchStart);
             testimonialsTrack.addEventListener('touchmove', touchMove);
             testimonialsTrack.addEventListener('touchend', touchEnd);
-            
+
             // Mouse events for dragging
             testimonialsTrack.addEventListener('mousedown', touchStart);
             testimonialsTrack.addEventListener('mousemove', touchMove);
             testimonialsTrack.addEventListener('mouseup', touchEnd);
             testimonialsTrack.addEventListener('mouseleave', touchEnd);
-            
+
             function touchStart(event) {
                 if (event.type === 'mousedown') {
                     event.preventDefault(); // Prevent text selection during drag
                 }
-                
+
                 startPosition = getPositionX(event);
                 isDragging = true;
-                
+
                 // Stop any ongoing slide animation
                 cancelAnimationFrame(animationID);
-                
+
                 // Start drag animation
                 animationID = requestAnimationFrame(animation);
-                
+
                 // Add grabbing cursor
                 testimonialsTrack.style.cursor = 'grabbing';
             }
-            
+
             function touchMove(event) {
                 if (isDragging) {
                     const currentPosition = getPositionX(event);
                     const moveDistance = currentPosition - startPosition;
-                    
+
                     // Update current translate based on drag distance
                     currentTranslate = prevTranslate + moveDistance;
                 }
             }
-            
+
             function touchEnd() {
                 isDragging = false;
                 cancelAnimationFrame(animationID);
-                
+
                 // Calculate how much the slider was moved
                 const movedDistance = currentTranslate - prevTranslate;
-                
+
                 // Determine if we should go to next/prev slide or stay at current
                 if (movedDistance < -50 && currentGroup < totalGroups - 1) {
                     currentGroup++;
                 } else if (movedDistance > 50 && currentGroup > 0) {
                     currentGroup--;
                 }
-                
+
                 // Update slider position to snap to the correct group
                 updateSliderPosition();
-                
+
                 // Reset cursor style
                 testimonialsTrack.style.cursor = 'grab';
             }
-            
+
             // Add grabbing cursor to the track
             testimonialsTrack.style.cursor = 'grab';
-            
+
             // Prevent context menu on right click
             testimonialsTrack.addEventListener('contextmenu', e => {
                 e.preventDefault();
                 e.stopPropagation();
                 return false;
             });
-            
+
             // Handle window resize
             window.addEventListener('resize', () => {
                 const wasIsMobile = isMobile;
                 const newIsMobile = window.innerWidth < 768;
-                
+
                 // Only update if the layout mode changed
                 if (wasIsMobile !== newIsMobile) {
                     location.reload(); // Simple solution: reload to recalculate everything
                 }
             });
-            
+
             // Initialize
             updateSliderPosition();
         });

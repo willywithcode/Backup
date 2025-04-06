@@ -14,17 +14,17 @@
         font-size: 16px;
         transition: all 0.3s ease;
     }
-    
+
     .form-control:focus {
         outline: none;
         border-color: #3498db;
         box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.25);
     }
-    
+
     .form-control::placeholder {
         color: #6c757d;
     }
-    
+
     .submit-btn {
     background-color: #071B35;
     color: white;
@@ -45,45 +45,45 @@
     background-color: #0a2348;
 }
 
-    
+
     .consultation-form {
         position: relative;
         overflow: hidden;
     }
-    
+
     @media (max-width: 768px) {
         .hero_section {
             height: 400px !important;
         }
-        
+
         .hero_section h1 {
             font-size: 2rem !important;
         }
-        
+
         .contact-container {
             padding: 20px 15px;
         }
-        
+
         .contact-main-title {
             font-size: 2rem;
         }
-        
+
         .contact-main-description {
             font-size: 1rem;
             max-width: 100%;
         }
-        
+
         .contact-image-section {
             height: auto;
         }
-        
+
         .contact-info-box {
             position: relative;
             bottom: 0;
             width: 100%;
             margin-top: 30px;
         }
-        
+
         /* Improved form styles for mobile */
         .consultation-content {
             padding-left: 15px !important;
@@ -95,53 +95,53 @@
             width: 100% !important;
             margin-bottom: 20px !important;
         }
-        
+
         .consultation-form-container {
             padding: 0 15px !important;
             width: 100% !important;
         }
-        
+
         .form-row.grid {
             display: flex !important;
             flex-direction: column !important;
             grid-template-columns: unset !important;
         }
-        
+
         .form-row {
             text-align: center !important;
             margin-bottom: 15px !important;
         }
-        
+
         .form-group {
             width: 100% !important;
             margin-bottom: 15px !important;
         }
-        
+
         .form-control {
             width: 100% !important;
         }
-        
+
         textarea.form-control {
             width: 100% !important;
             min-height: 120px !important;
         }
-        
+
         .submit-btn {
             width: 100% !important;
             margin: 0 auto !important;
             padding: 15px !important;
         }
     }
-    
+
     @media (max-width: 480px) {
         .hero_section {
             height: 300px !important;
         }
-        
+
         .hero_section h1 {
             font-size: 1.8rem !important;
         }
-        
+
         .contact-main-title {
             font-size: 1.8rem;
         }
@@ -166,7 +166,7 @@
 
     <div class="contact-image-section">
         <img src="{{ asset('assets/contact/Frame 133.png') }}" alt="Behind Office Building" class="contact-image">
-        
+
         <div class="contact-info-box">
             <h2 class="info-box-title">BEHIND OFFICE</h2>
             <p class="info-box-description">
@@ -204,34 +204,35 @@
                     Lorem ipsum dolor sit amet consectetur. Senectus nulla faucibus feugiat mi et mattis risus tortor. Elementum elementum scelerisque ac ac placerat eget ultrices. Sit ac varius commodo egestas.
                 </p>
             </div>
-            
+
             <!-- Right Form -->
             <div class="consultation-form-container" data-aos="fade-left" data-aos-duration="1000">
-                <form class="consultation-form-fields">
+                <form action="{{ route('customers.store') }}" method="POST" class="consultation-form-fields">
+                    @csrf
                     <div class="form-row grid grid-cols-2 gap-4 mb-4">
                         <div class="form-group">
-                            <input type="text" placeholder="Họ và tên" class="form-control">
+                            <input type="text" name="name" required placeholder="Họ và tên" class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Email" class="form-control">
+                            <input type="email" name="email" required placeholder="Email" class="form-control">
                         </div>
                     </div>
-                    
+
                     <div class="form-row grid grid-cols-2 gap-4 mb-4">
                         <div class="form-group">
-                            <input type="tel" placeholder="Số điện thoại" class="form-control">
+                            <input type="tel" name="phone" required placeholder="Số điện thoại" class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="text" placeholder="Tỉnh thành" class="form-control">
+                            <input type="text" name="province" placeholder="Tỉnh thành" class="form-control">
                         </div>
                     </div>
-                    
+
                     <div class="form-row mb-4">
                         <div class="form-group">
-                            <textarea rows="4" placeholder="Lời nhắn..." class="form-control"></textarea>
+                            <textarea rows="4" name="content" placeholder="Lời nhắn..." class="form-control"></textarea>
                         </div>
                     </div>
-                    
+
                     <div class="form-row">
                         <button type="submit" class="submit-btn" style="background-color: #122B47;">GỬI YÊU CẦU</button>
                     </div>

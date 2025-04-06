@@ -1255,6 +1255,9 @@
   .min-w-auto {
     min-width: auto;
   }
+  .min-w-full {
+    min-width: 100%;
+  }
   .flex-shrink {
     flex-shrink: 1;
   }
@@ -3010,6 +3013,11 @@
   .md\:w-\[400px\] {
     @media (width >= 48rem) {
       width: 400px;
+    }
+  }
+  .md\:min-w-\[33\.333\%\] {
+    @media (width >= 48rem) {
+      min-width: 33.333%;
     }
   }
   .md\:transform-none {
