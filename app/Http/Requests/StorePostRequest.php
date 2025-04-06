@@ -29,7 +29,7 @@ class StorePostRequest extends FormRequest
             'order' => 'required|integer|min:0',
             'excerpt' => 'required|string|max:1000',
             'content' => 'required|string',
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:10240',
             'category_ids' => 'required|array',
             'category_ids.*' => 'exists:categories,id',
         ];
