@@ -38,11 +38,11 @@ class PostController extends Controller
 
             if ($request->hasFile('thumbnail')) {
                 $file = $request->file('thumbnail');
-                $filename = time() . '_' . $file->getClientOriginalName();
+                $filename = time() . '_' . str_replace(' ', '', $file->getClientOriginalName());
                 $file->move(public_path('upload'), $filename);
                 $filePath = 'upload/' . $filename;
             }
-            
+
             $post = Post::create([
                 'title' => $request->title,
                 'slug' => $request->slug,
@@ -87,13 +87,12 @@ class PostController extends Controller
 
             $filePath = $post->thumbnail;
 
-if ($request->hasFile('thumbnail')) {
-    $file = $request->file('thumbnail');
-    $filename = time() . '_' . $file->getClientOriginalName();
-    $file->move(public_path('upload'), $filename);
-    $filePath = 'upload/' . $filename;
-}
-
+            if ($request->hasFile('thumbnail')) {
+                $file = $request->file('thumbnail');
+                $filename = time() . '_' . str_replace(' ', '', $file->getClientOriginalName());
+                $file->move(public_path('upload'), $filename);
+                $filePath = 'upload/' . $filename;
+            }
 
             $post->update([
                 'title' => $request->title,
@@ -124,32 +123,30 @@ if ($request->hasFile('thumbnail')) {
     }
 
     public function services()
-{
-    $services = Post::whereHas('categories', function ($query) {
-        $query->where('category_id', 10);
-    })
-    ->where('is_published', true)
-    ->orderBy('order')
-    ->get();
+    {
+        $services = Post::whereHas('categories', function ($query) {
+            $query->where('category_id', 10);
+        })
+            ->where('is_published', true)
+            ->orderBy('order')
+            ->get();
 
-    return view('guest.service2', compact('services'));
-}
+        return view('guest.service2', compact('services'));
+    }
 
-public function serviceDetail($slug)
-{
-    $post = Post::isPublished()
-        ->where('slug', $slug)
-        ->firstOrFail();
+    public function serviceDetail($slug)
+    {
+        $post = Post::isPublished()
+            ->where('slug', $slug)
+            ->firstOrFail();
 
-    $otherServices = Post::isPublished()
-        ->whereHas('categories', fn($q) => $q->where('category_id', 10))
-        ->where('id', '!=', $post->id)
-        ->orderBy('order')
-        ->limit(4)
-        ->get();
+        $otherServices = Post::isPublished()
+            ->whereHas('categories', fn($q) => $q->where('category_id', 10))
+            ->where('id', '!=', $post->id)
+            ->orderBy('order')
+            ->limit(4)
+            ->get();
 
-    return view('guest.service_detail', compact('post', 'otherServices'));
-}
-
-
+        return view('guest.service_detail', compact('post', 'otherServices'));
+    }
 }
