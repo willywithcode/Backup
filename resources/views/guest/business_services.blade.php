@@ -770,10 +770,10 @@
                     <p>vấn đề hành chính, giấy tờ thủ tục, từ visa, hộ chiếu</p>
                     <p>đến các thủ tục pháp lý phức tạp</p>
                 </div>
-                <div class="hero-buttons mt-6">
-                    <a href="{{ route('contact') }}" class="btn-contact">Liên hệ</a>
-                    <a href="#" class="btn-more">Xem thêm</a>
-                </div>
+{{--                <div class="hero-buttons mt-6">--}}
+{{--                    <a href="{{ route('contact') }}" class="btn-contact">Liên hệ</a>--}}
+{{--                    <a href="#" class="btn-more">Xem thêm</a>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>
